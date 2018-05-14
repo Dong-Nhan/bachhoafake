@@ -1,0 +1,26 @@
+/* HOMEPAGE */
+
+/* logo */
+#logo {
+    height: 2em;
+    width:auto;
+}
+
+/* navbar */
+.navbar-brand {
+    color: yellow !important;
+}
+.navbar {
+    background-color: #a349a4;
+}
+
+/* carousel */
+/* sản phẩm trên trang chủ */
+.hinh-san-pham {
+    max-width: 100%;
+    height: auto;
+}
+
+.gia-san-pham {
+    color: red;
+}
