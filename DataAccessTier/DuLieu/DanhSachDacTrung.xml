@@ -6,7 +6,7 @@
         </DanhSachThuongHieu>
         <Loai ten="Loại đóng hộp">
             <GiaTri>Bia chai</GiaTri>
-            <GiaTri>Bia lon<GiaTri>
+            <GiaTri>Bia lon</GiaTri>
         </Loai>
     </DacTrung>
     <DacTrung masodanhmuc2="dm2_nuoc_ngot">
