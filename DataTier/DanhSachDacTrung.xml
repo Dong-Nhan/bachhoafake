@@ -1,0 +1,82 @@
+<DanhSacDacTrung>
+    <DacTrung masodanhmuc2="dm2_bia">
+        <DanhSachThuongHieu>
+            <ThuongHieu maso="th_tiger">Tiger</ThuongHieu>
+            <ThuongHieu maso="th_heineken">Heineken</ThuongHieu>
+        </DanhSachThuongHieu>
+        <Loai ten="Loại đóng hộp">
+            <GiaTri>Bia chai</GiaTri>
+            <GiaTri>Bia lon<GiaTri>
+        </Loai>
+    </DacTrung>
+    <DacTrung masodanhmuc2="dm2_nuoc_ngot">
+        <DanhSachThuongHieu>
+            <ThuongHieu maso="th_pepsi">Pepsi</ThuongHieu>
+            <ThuongHieu maso="th_cocacola">Coca Cola</ThuongHieu>
+        </DanhSachThuongHieu>
+        <Loai ten="Hương vị">
+            <GiaTri>Không đường</GiaTri>
+            <GiaTri>Ít đường</GiaTri>
+        </Loai>
+    </DacTrung>
+    <DacTrung masodanhmuc2="dm2_sua_tuoi">
+        <DanhSachThuongHieu>
+            <ThuongHieu maso="th_vinamilk">Vinamilk</ThuongHieu>
+            <ThuongHieu maso="th_dutch_lady">Dutch Lady</ThuongHieu>
+        </DanhSachThuongHieu>
+        <Loai ten="Loại sữa">
+            <GiaTri>Có đường</GiaTri>
+            <GiaTri>Không đường</GiaTri>
+        </Loai>
+    </DacTrung>
+    <DacTrung masodanhmuc2="dm2_sua_dac">
+        <DanhSachThuongHieu>
+            <ThuongHieu maso="th_ngoi_sao_phuong_nam">Ngôi sao Phương Nam</ThuongHieu>
+            <ThuongHieu maso="th_ong_tho">Ông Thọ</ThuongHieu>
+        </DanhSachThuongHieu>
+        <Loai ten="Loại đóng gói">
+            <GiaTri>Lon</GiaTri>
+            <GiaTri>Dạng vỉ</GiaTri>
+        </Loai>
+    </DacTrung>
+    <DacTrung masodanhmuc2="dm2_bot_ngot">
+        <DanhSachThuongHieu>
+            <ThuongHieu maso="th_ajinomoto">Ajinomoto</ThuongHieu>
+            <ThuongHieu maso="th_vedan">Vedan</ThuongHieu>
+        </DanhSachThuongHieu>
+        <Loai ten="Khối lượng">
+            <GiaTri>Gói nhỏ</GiaTri>
+            <GiaTri>Gói lớn</GiaTri>
+        </Loai>
+    </DacTrung>
+    <DacTrung masodanhmuc2="dm2_hat_nem">
+        <DanhSachThuongHieu>
+            <ThuongHieu maso="th_knorr">Knorr</ThuongHieu>
+            <ThuongHieu maso="th_ajingon">Ajingon</ThuongHieu>
+        </DanhSachThuongHieu>
+        <Loai ten="Loại">
+            <GiaTri>Hạt nêm chay</GiaTri>
+            <GiaTri>Hạt nêm xương thịt</GiaTri>
+        </Loai>
+    </DacTrung>
+    <DacTrung masodanhmuc2="dm2_mi">
+        <DanhSachThuongHieu>
+            <ThuongHieu maso="th_haohao">Hảo Hảo</ThuongHieu>
+            <ThuongHieu maso="th_omachi">Omachi</ThuongHieu>
+        </DanhSachThuongHieu>
+        <Loai ten="Hương vị">
+            <GiaTri>Mì tôm</GiaTri>
+            <GiaTri>Mì lẩu thái</GiaTri>
+        </Loai>
+    </DacTrung>
+    <DacTrung masodanhmuc2="dm2_bun">
+        <DanhSachThuongHieu>
+            <ThuongHieu maso="th_bich_chi">Bích Chi</ThuongHieu>
+            <ThuongHieu maso="th_vifon">Vifon</ThuongHieu>
+        </DanhSachThuongHieu>
+        <Loai ten="Hương vị">
+            <GiaTri>Bún bò Huế</GiaTri>
+            <GiaTri>Bún chay</GiaTri>
+        </Loai>
+    </DacTrung>
+</DanhSacDacTrung>

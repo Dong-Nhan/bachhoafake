@@ -1,0 +1,15 @@
+<DanhSachPhieuBanHang>
+    <PhieuBanHang hotennguoimua="Nguyễn Văn A" diachi="Quận 5" dienthoai="0123456789" tongtien="60000" ngay="2018-06-18" hotennhanvien="Đào Thị A">
+        <MatHang maso="mh_sua_tt_vinamilk" soluong="2" dongia="5000" tien="10000"/>
+        <MatHang maso="mh_sua_tt_dutch_lady" soluong="10" dongia="5000" tien="50000"/>
+    </PhieuBanHang>
+    <PhieuBanHang hotennguoimua="Nguyễn Văn B" diachi="Quận 6" dienthoai="0123456789" tongtien="140000" ngay="2018-06-19" hotennhanvien="Đào Thị B">
+        <MatHang maso="mh_sua_tt_vinamilk" soluong="4" dongia="5000" tien="20000"/>
+        <MatHang maso="mh_sua_dac_ong_tho" soluong="6" dongia="20000" tien="120000"/>
+    </PhieuBanHang>
+    <PhieuBanHang hotennguoimua="Nguyễn Văn C" diachi="Quận 7" dienthoai="0123456789" tongtien="305000" ngay="2018-06-17" hotennhanvien="Đào Thị C">
+        <MatHang maso="mh_sua_tt_vinamilk" soluong="1" dongia="5000" tien="5000"/>
+        <MatHang maso="mh_sua_tt_dutch_lady" soluong="20" dongia="5000" tien="100000"/>
+        <MatHang maso="mh_sua_dac_ong_tho" soluong="10" dongia="20000" tien="200000"/>
+    </PhieuBanHang>
+</DanhSachPhieuBanHang>

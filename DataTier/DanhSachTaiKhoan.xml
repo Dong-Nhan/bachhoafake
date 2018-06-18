@@ -1,0 +1,6 @@
+<DanhSachTaiKhoan>
+    <TaiKhoan username="ql1" password="1" role="QL"/>
+    <TaiKhoan username="ql2" password="1" role="QL"/>
+    <TaiKhoan username="nv1" password="1" role="NV"/>
+    <TaiKhoan username="nv2" password="1" role="NV"/>
+</DanhSachTaiKhoan>

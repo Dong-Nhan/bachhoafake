@@ -1,0 +1,18 @@
+<DanhSachDanhMucSanPham>
+    <DanhMucCap1 ten="Đồ uống" maso="dm1_do_uong">
+        <DanhMucCap2 ten="Bia" maso="dm2_bia" />
+        <DanhMucCap2 ten="Nước ngọt" maso="dm2_nuoc_ngot" />
+    </DanhMucCap1>
+    <DanhMucCap1 ten="Sữa" maso="dm1_sua">
+        <DanhMucCap2 ten="Sữa tươi" maso="dm2_sua_tuoi" />
+        <DanhMucCap2 ten="Sữa đặc" maso="dm2_sua_dac" />
+    </DanhMucCap1>
+    <DanhMucCap1 ten="Gia vị nấu ăn" maso="dm1_gia_vi_nau_an">
+        <DanhMucCap2 ten="Bột ngọt" maso="dm2_bot_ngot" />
+        <DanhMucCap2 ten="Hạt nêm" maso="dm2_hat_nem" />
+    </DanhMucCap1>
+    <DanhMucCap1 ten="Thực phẩm ăn liền" maso="dm1_thuc_pham_an_lien">
+        <DanhMucCap2 ten="Mì" maso="dm2_mi" />
+        <DanhMucCap2 ten="Bún" maso="dm2_bun" />
+    </DanhMucCap1>
+</DanhSachDanhMucSanPham>

@@ -1,0 +1,66 @@
+<DanhSachMatHang>
+    <MatHang ten="Sữa tiệt trùng Vinamilk" maso="mh_sua_tt_vinamilk" soluongtrongmathang="1" khoiluongtinh="220ml" gia="5000" tinhtrang="Bán" thuonghieu="Vinamilk" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_tuoi">
+        <ThongTinChiTiet>
+            <ThongTin>Hương vị béo ngọt, thơm ngon</ThongTin>
+            <ThongTin>Sữa tiệt trùng có đường</ThongTin>
+            <ThongTin>Bổ sung chất béo thực vật, vitamin A, D</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Nước, sữa bột, đường tinh luyện, dầu thực vật, vitamin A, vitamin D3...</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Lắc đều trước khi uống. Ngon hơn khi uống lạnh</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo, thoáng mát. Tránh ánh nắng trực tiếp</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_sua_tuoi">
+            <ThuongHieu maso="th_vinamilk">Vinamilk</ThuongHieu>
+            <Loai ten="Loại sữa">Có đường</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Sữa tiệt trùng Dutch Lady" maso="mh_sua_tt_dutch_lady" soluongtrongmathang="1" khoiluongtinh="220ml" gia="5000" tinhtrang="Bán" thuonghieu="Dutch Lady" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_tuoi">
+        <ThongTinChiTiet>
+            <ThongTin>Hương vị béo ngọt, thơm ngon</ThongTin>
+            <ThongTin>Sữa tiệt trùng có đường</ThongTin>
+            <ThongTin>Bổ sung chất béo thực vật, vitamin A, D</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Nước, sữa bột, đường tinh luyện, dầu thực vật, vitamin A, vitamin D3...</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Lắc đều trước khi uống. Ngon hơn khi uống lạnh</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo, thoáng mát. Tránh ánh nắng trực tiếp</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_sua_tuoi">
+            <ThuongHieu maso="th_dutch_lady">Dutch Lady</ThuongHieu>
+            <Loai ten="Loại sữa">Có đường</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Sữa đặc Ngôi sao Phương Nam" maso="mh_sua_dac_ngoi_sao_phuong_nam" soluongtrongmathang="1" khoiluongtinh="380g" gia="20000" tinhtrang="Bán" thuonghieu="Ngôi sao Phương Nam" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_dac">
+        <ThongTinChiTiet>
+            <ThongTin>Vị sữa ngọt, béo ngọt, đậm đà</ThongTin>
+            <ThongTin>Sữa bột, đường tinh luyện, bột Whey</ThongTin>
+            <ThongTin>Đóng lon nhỏ gọn, tiện dụng</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Đường tinh luyện (47%), nước, dầu thực vật, whey bột, sữa bột, maltodextrin, lactoza, chất nhũ hóa, muối ăn, hương liệu tổng hợp dùng trong thực phẩm</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Pha 1 phần sữa vào 3 phần nước ấm đã đun sôi.</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo và thoáng mát.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_sua_dac">
+            <ThuongHieu maso="th_ngoi_sao_phuong_nam">Ngôi sao Phương Nam</ThuongHieu>
+            <Loai ten="Loại đóng gói">Lon</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Sữa đặc Ông Thọ" maso="mh_sua_dac_ong_tho" soluongtrongmathang="1" khoiluongtinh="380g" gia="20000" tinhtrang="Bán" thuonghieu="Ông Thọ" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_dac">
+        <ThongTinChiTiet>
+            <ThongTin>Vị sữa ngọt, béo ngọt, đậm đà</ThongTin>
+            <ThongTin>Sữa bột, đường tinh luyện, bột Whey</ThongTin>
+            <ThongTin>Đóng lon nhỏ gọn, tiện dụng</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Đường tinh luyện (47%), nước, dầu thực vật, whey bột, sữa bột, maltodextrin, lactoza, chất nhũ hóa, muối ăn, hương liệu tổng hợp dùng trong thực phẩm</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Pha 1 phần sữa vào 3 phần nước ấm đã đun sôi.</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo và thoáng mát.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_sua_dac">
+            <ThuongHieu maso="th_ong_tho">Ông Thọ</ThuongHieu>
+            <Loai ten="Loại đóng gói">Lon</Loai>
+        </DacTrung>
+    </MatHang>
+</DanhSachMatHang>
