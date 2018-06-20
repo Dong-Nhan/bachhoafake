@@ -1,6 +1,7 @@
 <DanhSachTaiKhoan>
-    <TaiKhoan username="ql1" password="1" role="QL"/>
-    <TaiKhoan username="ql2" password="1" role="QL"/>
-    <TaiKhoan username="nv1" password="1" role="NV"/>
-    <TaiKhoan username="nv2" password="1" role="NV"/>
+    <TaiKhoan username="ql1" password="1" role="QL" ten="Nguyễn Văn A"/>
+    <TaiKhoan username="ql2" password="1" role="QL" ten="Nguyễn Văn B"/>
+    <TaiKhoan username="nv1" password="1" role="NV" ten="Đào Thị A"/>
+    <TaiKhoan username="nv2" password="1" role="NV" ten="Đào Thị B"/>
+    <TaiKhoan username="nv2" password="1" role="NV" ten="Đào Thị C"/>
 </DanhSachTaiKhoan>
