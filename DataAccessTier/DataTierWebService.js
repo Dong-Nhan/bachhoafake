@@ -4,32 +4,93 @@ var url = require("url");
 var DOMParser = require("xmldom").DOMParser;
 var XMLSerializer = require("xmldom").XMLSerializer;
 
-http.createServer((YeuCau, DapUng) => {
-    var parsedUrl = url.parse(YeuCau.url, true);
-    var queryObject = parsedUrl.query;
-    DapUng.setHeader("Content-type", "text/xml");
-
-    //xử lý các đường dẫn
-    switch (parsedUrl.pathname) {
-        //đọc dữ liệu
-        case "/ReadDSPhieuBanHang":
-            DapUng.end(XuLy.ReadDSPhieuBanHang());
+http.createServer((req, res) => {
+    var parsedUrl = url.parse(req.url, true);
+    console.log(req.method, parsedUrl.path);
+    var queryObject = parsedUrl.query; //dùng để lấy data trong query string 
+    res.setHeader("Content-Type", "text/xml");
+    switch (req.method) {
+        case "GET":
+            switch (parsedUrl.pathname) {
+                case "/ReadDSPhieuBanHang":
+                    if (!XuLy.KiemTraBUSTokenKey(req.headers.bustokenkey)) {
+                        console.log("BUS token key khong hop le");
+                        res.end();
+                        break;
+                    }
+                    res.end(XuLy.ReadDSPhieuBanHang());
+                    break;
+                case "/ReadDSDacTrung":
+                    if (!XuLy.KiemTraBUSTokenKey(req.headers.bustokenkey)) {
+                        console.log("BUS token key khong hop le");
+                        res.end();
+                        break;
+                    }
+                    res.end(XuLy.ReadDSDacTrung());
+                    break;
+                case "/ReadDSDanhMucSanPham":
+                    if (!XuLy.KiemTraBUSTokenKey(req.headers.bustokenkey)) {
+                        console.log("BUS token key khong hop le");
+                        res.end();
+                        break;
+                    }
+                    res.end(XuLy.ReadDSDanhMucSanPham());
+                    break;
+                case "/ReadDSMatHang":
+                    if (!XuLy.KiemTraBUSTokenKey(req.headers.bustokenkey)) {
+                        console.log("BUS token key khong hop le");
+                        res.end(null);
+                        break;
+                    }
+                    res.end(XuLy.ReadDSMatHang());
+                    break;
+                case "/ReadDSTaiKhoan":
+                    if (!XuLy.KiemTraBUSTokenKey(req.headers.bustokenkey)) {
+                        console.log("BUS token key khong hop le");
+                        res.end();
+                        break;
+                    }
+                    res.end(XuLy.ReadDSTaiKhoan());
+                    break;
+                case "/CapNhatGiaBan":
+                    if (!XuLy.KiemTraBUSTokenKey(req.headers.bustokenkey)) {
+                        console.log("BUS token key khong hop le");
+                        res.end();
+                        break;
+                    }
+                    if (XuLy.CapNhatGiaBan(queryObject.ma_so, queryObject.gia)) res.end("true");
+                    else res.end("false");
+                    break;
+                case "/CapNhatTinhTrang":
+                    if (!XuLy.KiemTraBUSTokenKey(req.headers.bustokenkey)) {
+                        console.log("BUS token key khong hop le");
+                        res.end();
+                        break;
+                    }
+                    if (XuLy.CapNhatTinhTrang(queryObject.ma_so, queryObject.tinh_trang)) res.end("true");
+                    else res.end("false");
+                    break;
+                default:
+                    console.log("Truy van khong hop le: ", req.method, parsedUrl.pathname);
+                    res.end();
+            }
             break;
-        case "/ReadDSDacTrung":
-            DapUng.end(XuLy.ReadDSDacTrung());
-            break;
-        case "/ReadDSDanhMucSanPham":
-            DapUng.end(XuLy.ReadDSDanhMucSanPham());
-            break;
-        case "/ReadDSMatHang":
-            DapUng.end(XuLy.ReadDSMatHang());
-            break;
-        case "/ReadDSTaiKhoan":
-            DapUng.end(XuLy.ReadDSTaiKhoan());
+        case "POST":
+            switch (parsedUrl.pathname) {
+                case '/DangNhapBUS':
+                    let newTokenKey = XuLy.DangNhapBUS(queryObject.user_name, queryObject.password);
+                    //res.setHeader("Set-Cookie", "busTokenKey=" + newTokenKey);
+                    res.end(newTokenKey);
+                    break;
+                default:
+                    console.log("Truy van khong hop le: ", req.method, parsedUrl.pathname);
+                    res.end();
+            }
             break;
         default:
-            console.log("Truy van khong hop le: ", parsedUrl.pathname);
-            DapUng.end();
+            console.log("Method khong hop le");
+            res.end();
+
     }
 
 }).listen(3002, (err) => {

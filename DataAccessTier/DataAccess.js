@@ -31,6 +31,34 @@ function CacheData() {
 class DataAccessTier {
     constructor() {
         CacheData();
+        this.dsTokenKey = [];
+        this.dsTaiKhoanHopLe = [{
+            username: 'bus',
+            password: '1'
+        }]
+    }
+
+    //đăng nhập thành công trả về tokenkey dạng username-validBusTokenKey
+    //đăng nhập thất bại trả về ""
+    DangNhapBUS(username, password) {
+        let newTokenKey = "";
+        for (let i = 0; i < this.dsTaiKhoanHopLe.length; i++) {
+            if (this.dsTaiKhoanHopLe[i].username == username && this.dsTaiKhoanHopLe[i].password == password) {
+                newTokenKey = this.dsTaiKhoanHopLe[i].username + "-validBusTokenKey";
+                this.dsTokenKey.push(newTokenKey);
+                console.log("BUS dang nhap thanh cong");
+                break;
+            }
+        }
+        return newTokenKey;
+    }
+
+    KiemTraBUSTokenKey(busTokenKey) {
+        if (!busTokenKey) return false;
+        for (let i = 0; i < this.dsTokenKey.length; i++) {
+            if (this.dsTokenKey[i] == busTokenKey) return true;
+        }
+        return false;
     }
 
     ReadDSPhieuBanHang() {
@@ -51,6 +79,50 @@ class DataAccessTier {
 
     ReadDSTaiKhoan() {
         return Chuoi_DanhSachTaiKhoan;
+    }
+
+    CapNhatGiaBan(ma_so, gia_moi) {
+        //kiểm tra giá
+        gia_moi = parseFloat(gia_moi);
+        let giaHopLe = !isNaN(gia_moi);
+        if (!giaHopLe) return false;
+
+        //tìm và cập nhật
+        let dsMatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
+        for (let i = 0; i < dsMatHang.length; i++) {
+            if (dsMatHang[i].getAttribute('maso') == ma_so) {
+                dsMatHang[i].setAttribute('gia', gia_moi); //cập nhật DOM
+                Chuoi_DanhSachMatHang = new XMLSerializer().serializeToString(DOM_DanhSachMatHang); //cập nhật chuỗi
+                fs.writeFile(DuongDan + TenFile[3], Chuoi_DanhSachMatHang, (err) => { //cập nhật file xml
+                    if (err) console.log(`Ghi file ${TenFile[3]} that bai`);
+                    else console.log(`Ghi file ${TenFile[3]} thanh cong`)
+                })
+                console.log(`Cap nhat gia ban ${ma_so} thanh cong`);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    CapNhatTinhTrang(ma_so, tinh_trang) {
+        //kiểm tra tình trạng bán/ngưng đơn giản
+        if (tinh_trang != "ban" && tinh_trang != "ngung") return false;
+
+        //tìm và cập nhật
+        let dsMatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
+        for (let i = 0; i < dsMatHang.length; i++) {
+            if (dsMatHang[i].getAttribute('maso') == ma_so) {
+                dsMatHang[i].setAttribute('tinhtrang', tinh_trang); //cập nhật DOM
+                Chuoi_DanhSachMatHang = new XMLSerializer().serializeToString(DOM_DanhSachMatHang); //cập nhật chuỗi
+                fs.writeFile(DuongDan + TenFile[3], Chuoi_DanhSachMatHang, (err) => { //cập nhật file xml
+                    if (err) console.log(`Ghi file ${TenFile[3]} that bai`);
+                    else console.log(`Ghi file ${TenFile[3]} thanh cong`)
+                })
+                console.log(`Cap nhat tinh trang ${ma_so} thanh cong`);
+                return true;
+            }
+        }
+        return false;
     }
 
 }

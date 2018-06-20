@@ -1,5 +1,5 @@
 <DanhSachMatHang>
-    <MatHang ten="Sữa tiệt trùng Vinamilk" maso="mh_sua_tt_vinamilk" soluongtrongmathang="1" khoiluongtinh="220ml" gia="5000" tinhtrang="Bán" thuonghieu="Vinamilk" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_tuoi">
+    <MatHang ten="Sữa tiệt trùng Vinamilk" maso="mh_sua_tt_vinamilk" soluongtrongmathang="1" khoiluongtinh="220ml" gia="5000" tinhtrang="ban" thuonghieu="Vinamilk" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_tuoi">
         <ThongTinChiTiet>
             <ThongTin>Hương vị béo ngọt, thơm ngon</ThongTin>
             <ThongTin>Sữa tiệt trùng có đường</ThongTin>
@@ -15,7 +15,7 @@
             <Loai ten="Loại sữa">Có đường</Loai>
         </DacTrung>
     </MatHang>
-    <MatHang ten="Sữa tiệt trùng Dutch Lady" maso="mh_sua_tt_dutch_lady" soluongtrongmathang="1" khoiluongtinh="220ml" gia="5000" tinhtrang="Bán" thuonghieu="Dutch Lady" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_tuoi">
+    <MatHang ten="Sữa tiệt trùng Dutch Lady" maso="mh_sua_tt_dutch_lady" soluongtrongmathang="1" khoiluongtinh="220ml" gia="5000" tinhtrang="ban" thuonghieu="Dutch Lady" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_tuoi">
         <ThongTinChiTiet>
             <ThongTin>Hương vị béo ngọt, thơm ngon</ThongTin>
             <ThongTin>Sữa tiệt trùng có đường</ThongTin>
@@ -31,7 +31,7 @@
             <Loai ten="Loại sữa">Có đường</Loai>
         </DacTrung>
     </MatHang>
-    <MatHang ten="Sữa đặc Ngôi sao Phương Nam" maso="mh_sua_dac_ngoi_sao_phuong_nam" soluongtrongmathang="1" khoiluongtinh="380g" gia="20000" tinhtrang="Bán" thuonghieu="Ngôi sao Phương Nam" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_dac">
+    <MatHang ten="Sữa đặc Ngôi sao Phương Nam" maso="mh_sua_dac_ngoi_sao_phuong_nam" soluongtrongmathang="1" khoiluongtinh="380g" gia="20000" tinhtrang="ban" thuonghieu="Ngôi sao Phương Nam" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_dac">
         <ThongTinChiTiet>
             <ThongTin>Vị sữa ngọt, béo ngọt, đậm đà</ThongTin>
             <ThongTin>Sữa bột, đường tinh luyện, bột Whey</ThongTin>
@@ -47,7 +47,7 @@
             <Loai ten="Loại đóng gói">Lon</Loai>
         </DacTrung>
     </MatHang>
-    <MatHang ten="Sữa đặc Ông Thọ" maso="mh_sua_dac_ong_tho" soluongtrongmathang="1" khoiluongtinh="380g" gia="20000" tinhtrang="Bán" thuonghieu="Ông Thọ" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_dac">
+    <MatHang ten="Sữa đặc Ông Thọ" maso="mh_sua_dac_ong_tho" soluongtrongmathang="1" khoiluongtinh="380g" gia="20000" tinhtrang="ban" thuonghieu="Ông Thọ" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_dac">
         <ThongTinChiTiet>
             <ThongTin>Vị sữa ngọt, béo ngọt, đậm đà</ThongTin>
             <ThongTin>Sữa bột, đường tinh luyện, bột Whey</ThongTin>
