@@ -84,7 +84,7 @@ function GetData(){
 
 
 //update data ở DAL
-function UpdateFunction(url, cb){
+function UpdateFunction(url){
     var options = {
         protocol:'http:',  
         host: 'localhost',
@@ -167,6 +167,21 @@ function CacheDuLieuKhachXemChiTiet(masomathang){
     }
     //Trả về rỗng nếu ko tìm thấy
     return "";
+}
+
+function LayTenNhanVien(tokenkey){
+    let MaNV = "";
+    for(let i = 0; i < tokenkey.length;i++){
+        if(tokenkey[i] == '-')
+            break;
+        MaNV+=tokenkey[i];
+    }
+    let NhanVien = DOM_DanhSachTaiKhoan.getElementsByTagName("TaiKhoan");
+    for(let i = 0; i < NhanVien.length;i++){
+        if(NhanVien[i].getAttribute("username") == MaNV){
+            return NhanVien[i].getAttribute("ten");
+        }
+    }
 }
 
 class BUS{
@@ -282,6 +297,7 @@ class BUS{
         for(let i = 0; i < MatHang.length;i++){
             if(MatHang[i].getAttribute("maso") == ma_so){
                 MatHang[i].setAttribute("gia",don_gia_moi);
+                Chuoi_DanhSachMatHang = new XMLSerializer().serializeToString(DOM_DanhSachMatHang);
                 UpdateFunction(`/CapNhatGiaBan?ma_so=${ma_so}&gia=${don_gia_moi}`);
                 return true;
             }
@@ -296,12 +312,49 @@ class BUS{
         for(let i = 0; i < MatHang.length;i++){
             if(MatHang[i].getAttribute("maso") == ma_so){
                 MatHang[i].setAttribute("tinhtrang",tinh_trang_moi);
+                Chuoi_DanhSachMatHang = new XMLSerializer().serializeToString(DOM_DanhSachMatHang);
                 UpdateFunction(`/CapNhatTinhTrang?ma_so=${ma_so}&tinh_trang=${tinh_trang_moi}`);
                 return true;
             }
         }
         //Không tìm thấy
         return false;
+    }
+
+    /*data{
+        string ho_ten_khach, string dia_chi, 
+        string dien_thoai, string ngay, 
+        Object[] mat_hang{ma_so, so_luong, don_gia,tien}
+    }*/
+    //tokenkey để xác định nhân viên bán hàng
+    BanHang(data, tokenkey){
+        let datajson = JSON.parse(data);
+        let PhieuBan = DOM_DanhSachPhieuBanHang.createElement("PhieuBanHang");
+        PhieuBan.setAttribute("hotennguoimua",datajson.ho_ten_khach);
+        PhieuBan.setAttribute("diachi",datajson.dia_chi);
+        PhieuBan.setAttribute("dienthoai",datajson.dien_thoai);
+        PhieuBan.setAttribute("ngay",datajson.ngay);
+        let NhanVienBan = LayTenNhanVien(tokenkey);
+        PhieuBan.setAttribute("hotennhanvien",NhanVienBan);
+
+        let TongTien = 0;
+        for(let i = 0; i < datajson.mat_hang.length;i++){
+            let MatHang = DOM_DanhSachPhieuBanHang.createElement("MatHang");
+            MatHang.setAttribute("maso", datajson.mat_hang[i].ma_so);
+            MatHang.setAttribute("soluong", datajson.mat_hang[i].so_luong);
+            MatHang.setAttribute("dongia", datajson.mat_hang[i].don_gia);
+            MatHang.setAttribute("tien", datajson.mat_hang[i].tien);
+            PhieuBan.appendChild(MatHang);
+            TongTien+=datajson.mat_hang[i].tien;
+        }
+        PhieuBan.setAttribute("tongtien",TongTien);
+        DOM_DanhSachPhieuBanHang.appendChild(PhieuBan);
+        Chuoi_DanhSachPhieuBanHang = new XMLSerializer().serializeToString(DOM_DanhSachPhieuBanHang);
+
+        //serialize data và request sang DAL
+        let dataSend = new XMLSerializer().serializeToString(PhieuBan);
+        UpdateFunction(`/Ban?data=${dataSend}`);
+        return true;
     }
 }
 
