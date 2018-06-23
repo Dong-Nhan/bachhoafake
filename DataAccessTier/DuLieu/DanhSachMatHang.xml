@@ -15,7 +15,7 @@
             <Loai ten="Loại sữa">Có đường</Loai>
         </DacTrung>
     </MatHang>
-    <MatHang ten="Sữa tiệt trùng Dutch Lady" maso="mh_sua_tt_dutch_lady" soluongtrongmathang="1" khoiluongtinh="220ml" gia="5000" tinhtrang="ban" thuonghieu="Dutch Lady" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_tuoi">
+    <MatHang ten="Sữa tiệt trùng Dutch Lady" maso="mh_sua_tt_dutch_lady" soluongtrongmathang="1" khoiluongtinh="220ml" gia="6500" tinhtrang="ngung" thuonghieu="Dutch Lady" masodanhmuc1="dm1_sua" masodanhmuc2="dm2_sua_tuoi">
         <ThongTinChiTiet>
             <ThongTin>Hương vị béo ngọt, thơm ngon</ThongTin>
             <ThongTin>Sữa tiệt trùng có đường</ThongTin>

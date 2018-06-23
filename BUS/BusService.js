@@ -13,48 +13,85 @@ http.createServer((req,res)=>{
             switch(pathname){
                 case "/DangXuat":
                 {
-                    method.DangXuat(req.headers.tokenkey);
+                    if(method.KiemTraTokeKey(req.headers.tokenkey))
+                    {   
+                        let result = method.DangXuat(req.headers.tokenkey);
+                        if(result)
+                            console.log("Dang xuat thanh cong");
+                        else
+                            console.log("Dang xuat ko thanh cong");
+                        res.end(result?"true":"false");
+                    }
+                    else{
+                        console.log("Dang xuat ko thanh cong");
+                        res.end("false");
+                    }
                 }
                 break;
                 case "/LayThongTinMatHangTrangChu":
                 {
-                    method.LayThongTinMatHangTrangChu();
+                    let DanhSachMatHangTrangChu = method.LayThongTinMatHangTrangChu();
+                    res.end(DanhSachMatHangTrangChu);
                 }
                 break;
                 case "/LayThongTinDanhMucTrangChu":
                 {
-                    method.LayThongTinDanhMucTrangChu();
+                    let DanhMuc = method.LayThongTinDanhMucTrangChu();
+                    res.end(DanhMuc);
                 }
                 break;
                 case "/LayThongTinMatHangTrangDMC2":
                 {
                     let ThongTinMatHangDMC2 = method.LayThongTinMatHangTrangDMC2(query.ma_so);
-                    return ThongTinMatHangDMC2;
+                    res.end(ThongTinMatHangDMC2);
                 }
                 break;
-                case "/LayThongTinDacTrungnTrangDMC2":
+                case "/LayThongTinDacTrungTrangDMC2":
                 {
-
+                    let DacTrungDMC2 = method.LayThongTinDacTrungTrangDMC2(query.ma_so);
+                    res.end(DacTrungDMC2);
                 }
                 break;
                 case "/LayThongTinChiTietMatHang":
                 {
-
+                    let ChiTietMatHang = method.LayThongTinChiTietMatHang(query.ma_so);
+                    res.end(ChiTietMatHang);
                 }
                 break;
                 case "/LayThongTinMatHangChoQuanLyNhanVien":
                 {
-
+                    if(method.KiemTraTokeKey(req.headers.tokenkey))
+                    {
+                        let DanhSachMatHang = method.LayThongTinMatHangChoQuanLyNhanVien(query.ma_so);
+                        res.end(DanhSachMatHang);
+                    }
+                    else{
+                        res.end();
+                    }
                 }
                 break;
                 case "/SuaThongTinDonGia":
                 {
-
+                    if(method.KiemTraTokeKey(req.headers.tokenkey))
+                    {
+                        let result = method.SuaThongTinDonGia(query.ma_so,query.don_gia_moi);
+                        res.end(result?"true":"false");
+                    }
+                    else{
+                        res.end();
+                    }
                 }
                 break;
                 case "/SuaThongTinTinhTrang":
                 {
-
+                    if(method.KiemTraTokeKey(req.headers.tokenkey))
+                    {
+                        let result = method.SuaThongTinTinhTrang(query.ma_so,query.tinh_trang_moi);
+                        res.end(result?"true":"false");
+                    }
+                    else{
+                        res.end();
+                    }
                 }
                 break;
                 case "/BanHang":

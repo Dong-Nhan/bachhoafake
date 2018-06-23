@@ -82,6 +82,38 @@ function GetData(){
     GetFunction(`/ReadDSMatHang`)
 }
 
+
+//update data ở DAL
+function UpdateFunction(url, cb){
+    var options = {
+        protocol:'http:',  
+        host: 'localhost',
+        port: portDAL,
+        path: url,
+        headers: {
+            'Content-Type': 'text/xml',
+            "bustokenkey": busTokenKey
+        }
+    };
+
+    http.get(options,(res)=>{
+        var buffer = "";
+        res.setEncoding("utf8");
+
+        res.on("data", chunk => {
+            buffer += chunk;
+        });
+
+        res.on("end", ()=>{
+            if(buffer == "true")
+                console.log(`Da cap nhat lai san pham o DAL`);
+            else
+                console.log(`Khong the cap nhat lai san pham o DAL`);
+        });
+    })
+}
+
+
 function CacheDuLieuMatHangTrangChu(){
     let DanhSachMatHangTrangChu = DOM_DanhSachMatHang.createElement("DanhSachMatHang");
     let MatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
@@ -140,7 +172,7 @@ function CacheDuLieuKhachXemChiTiet(masomathang){
 class BUS{
     constructor(){
         busTokenKey = "";
-        this.DanhSachTokenKey = [];
+        this.DanhSachTokenKey = ["nv1-NV"];
 
         //Đăng nhập BUS
         http.post(`http://localhost:${portDAL}/DangNhapBUS?user_name=${taikhoanBUS.user_name}&password=${taikhoanBUS.password}`,
@@ -181,10 +213,10 @@ class BUS{
     DangNhap(user_name, password){
         var DanhSachtaiKhoan = DOM_DanhSachTaiKhoan.getElementsByTagName("TaiKhoan");
         for(var i = 0; i < DanhSachtaiKhoan.length;i++){
-            if(DanhSachtaiKhoan[i].getAttribute("username") == user_name && DanhSachtaiKhoan.getAttribute("password") == password){
+            if(DanhSachtaiKhoan[i].getAttribute("username") == user_name && DanhSachtaiKhoan[i].getAttribute("password") == password){
                 //Phát sinh token key và trả về
                 //Dạng tokenkey username-role
-                let tokenkey = user_name+DanhSachtaiKhoan[i].getAttribute("role");
+                let tokenkey = user_name + "-" +DanhSachtaiKhoan[i].getAttribute("role");
                 this.DanhSachTokenKey.push(tokenkey);
                 console.log(`User: ${user_name} dang nhap thanh cong`);
                 return tokenkey;
@@ -198,8 +230,9 @@ class BUS{
     DangXuat(tokenkey){
         if(!tokenkey) return false;
         for(var i = 0; i < this.DanhSachTokenKey.length; i++){
+            console.log(this.DanhSachTokenKey[i]);
             if(this.DanhSachTokenKey[i] == tokenkey){
-                this.DanhSachTokenKey.splice(i,1);
+                //this.DanhSachTokenKey.splice(i,1);
                 return true;
             }
         }
@@ -223,7 +256,7 @@ class BUS{
     }
 
     //Lấy thông tin đặc trưng để render giao diện trang DMC2
-    LayThongTinDacTrungnTrangDMC2(ma_so){
+    LayThongTinDacTrungTrangDMC2(ma_so){
         let DacTrung = DOM_DanhSachDacTrung.getElementsByTagName("DacTrung");
         for(let i = 0; i < DacTrung.length;i++){
             if(DacTrung[i].getAttribute("masodanhmuc2") == ma_so){
@@ -231,6 +264,44 @@ class BUS{
             }
         }
         return "";
+    }
+    
+    //Ma_so của mặt hàng
+    LayThongTinChiTietMatHang(ma_so){
+        return CacheDuLieuKhachXemChiTiet(ma_so);
+    }
+
+    //Ma_so của danh mục cấp 2
+    LayThongTinMatHangChoQuanLyNhanVien(ma_so){
+        return CacheDuLieuNV(ma_so);
+    }
+
+    //Ma_so mặt hàng
+    SuaThongTinDonGia(ma_so, don_gia_moi){
+        let MatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
+        for(let i = 0; i < MatHang.length;i++){
+            if(MatHang[i].getAttribute("maso") == ma_so){
+                MatHang[i].setAttribute("gia",don_gia_moi);
+                UpdateFunction(`/CapNhatGiaBan?ma_so=${ma_so}&gia=${don_gia_moi}`);
+                return true;
+            }
+        }
+        //Không tìm thấy
+        return false;
+    }
+
+    //Ma_so mặt hàng
+    SuaThongTinTinhTrang(ma_so, tinh_trang_moi){
+        let MatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
+        for(let i = 0; i < MatHang.length;i++){
+            if(MatHang[i].getAttribute("maso") == ma_so){
+                MatHang[i].setAttribute("tinhtrang",tinh_trang_moi);
+                UpdateFunction(`/CapNhatTinhTrang?ma_so=${ma_so}&tinh_trang=${tinh_trang_moi}`);
+                return true;
+            }
+        }
+        //Không tìm thấy
+        return false;
     }
 }
 
