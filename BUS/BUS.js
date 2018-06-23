@@ -1,0 +1,238 @@
+var http = require("http");
+http.post = require("http-post");
+var DOMParser = require("xmldom").DOMParser;
+var XMLSerializer = require("xmldom").XMLSerializer;
+var taikhoanBUS = {
+    user_name: "bus",
+    password: "1"
+};
+var busTokenKey;
+const portDAL = 3002;
+var Chuoi_DanhSachPhieuBanHang, Chuoi_DanhSachDacTrung, Chuoi_DanhSachDanhMucSanPham, Chuoi_DanhSachMatHang, Chuoi_DanhSachTaiKhoan;
+var DOM_DanhSachPhieuBanHang, DOM_DanhSachDacTrung, DOM_DanhSachDanhMucSanPham, DOM_DanhSachMatHang, DOM_DanhSachTaiKhoan;
+
+//Lấy data từ DAL
+function GetFunction(url){
+    var options = {
+        protocol:'http:',  
+        host: 'localhost',
+        port: portDAL,
+        path: url,
+        headers: {
+            'Content-Type': 'text/xml',
+            "bustokenkey": busTokenKey
+        }
+    };
+
+    http.get(options,(res)=>{
+        var buffer = "";
+        res.setEncoding("utf8");
+
+        res.on("data", chunk => {
+            buffer += chunk;
+        });
+
+        res.on("end", () => {
+            switch(url)
+            {
+                case "/ReadDSTaiKhoan":
+                    Chuoi_DanhSachTaiKhoan = buffer;
+                    DOM_DanhSachTaiKhoan = new DOMParser().parseFromString(Chuoi_DanhSachTaiKhoan, "text/xml")
+                    console.log("Da doc danh sach tai khoan tu DAL");
+                    break;
+                case "/ReadDSDanhMucSanPham":
+                    Chuoi_DanhSachDanhMucSanPham = buffer;
+                    DOM_DanhSachDanhMucSanPham = new DOMParser().parseFromString(Chuoi_DanhSachDanhMucSanPham, "text/xml")
+                    console.log("Da doc danh sach danh muc tu DAL");
+                    break;
+                case "/ReadDSDacTrung":
+                    Chuoi_DanhSachDacTrung = buffer;
+                    DOM_DanhSachDacTrung = new DOMParser().parseFromString(Chuoi_DanhSachDacTrung, "text/xml")
+                    console.log("Da doc danh sach dac trung tu DAL");
+                    break;
+                case "/ReadDSPhieuBanHang":
+                    Chuoi_DanhSachPhieuBanHang = buffer;
+                    DOM_DanhSachPhieuBanHang = new DOMParser().parseFromString(Chuoi_DanhSachPhieuBanHang, "text/xml")
+                    console.log("Da doc danh sach phieu ban hang tu DAL");
+                    break;
+                case "/ReadDSMatHang":
+                    Chuoi_DanhSachMatHang = buffer;
+                    DOM_DanhSachMatHang = new DOMParser().parseFromString(Chuoi_DanhSachMatHang, "text/xml")
+                    console.log("Da doc danh sach mat hang tu DAL");
+                    break;
+            }
+        });
+    })
+}
+
+function GetData(){
+    //Lấy danh sach tai khoan
+    GetFunction(`/ReadDSTaiKhoan`)
+
+    //Lấy danh sách danh mục sản phẩm
+    GetFunction(`/ReadDSDanhMucSanPham`)
+
+    //Lấy danh sách đặc trưng
+    GetFunction(`/ReadDSDacTrung`)
+
+    //Lấy danh sách phiếu bán hàng
+    GetFunction(`/ReadDSPhieuBanHang`)
+
+    //Lấy danh sách mặt hàng
+    GetFunction(`/ReadDSMatHang`)
+}
+
+function CacheDuLieuMatHangTrangChu(){
+    let DanhSachMatHangTrangChu = DOM_DanhSachMatHang.createElement("DanhSachMatHang");
+    let MatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
+    if(MatHang.length > 10){
+        for(let i = 0; i < 10;i++){
+            let ran = Math.floor(Math.random())+MatHang.length;
+            DanhSachMatHangTrangChu.appendChild(MatHang[ran].cloneNode());
+        }
+        let ChuoiDanhSachMatHang = new XMLSerializer().serializeToString(DanhSachMatHangTrangChu);
+        return ChuoiDanhSachMatHang;
+    }
+    else{
+        for(let i = 0; i < MatHang.length;i++){
+            DanhSachMatHangTrangChu.appendChild(MatHang[i].cloneNode());
+        }
+        let ChuoiDanhSachMatHang = new XMLSerializer().serializeToString(DanhSachMatHangTrangChu);
+        return ChuoiDanhSachMatHang;
+    }
+}
+
+function CacheDuLieuNV(masodanhmuc2){
+    let DanhSachMatHangNV = DOM_DanhSachMatHang.createElement("DanhSachMatHang");
+    let MatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
+    for(let i = 0; i < MatHang.length;i++){
+        if(MatHang[i].getAttribute("masodanhmuc2") == masodanhmuc2){
+            DanhSachMatHangNV.appendChild(MatHang[i].cloneNode());
+        }
+    }
+    let ChuoiDanhSachMatHang = new XMLSerializer().serializeToString(DanhSachMatHangNV);
+    return ChuoiDanhSachMatHang;
+}
+
+function CacheDuLieuKhachXemDanhMuc2(masodanhmuc2){
+    let DanhSachMatHangDMC2 = DOM_DanhSachMatHang.createElement("DanhSachMatHang");
+    let MatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
+    for(let i = 0; i < MatHang.length;i++){
+        if(MatHang[i].getAttribute("masodanhmuc2") == masodanhmuc2){
+            DanhSachMatHangDMC2.appendChild(MatHang[i].cloneNode());
+        }
+    }
+    let ChuoiDanhSachMatHangDMC2 = new XMLSerializer().serializeToString(DanhSachMatHangDMC2);
+    return ChuoiDanhSachMatHangDMC2;
+}
+
+function CacheDuLieuKhachXemChiTiet(masomathang){
+    let MatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
+    for(let i = 0; i < MatHang.length;i++){
+        if(MatHang[i].getAttribute("maso") == masomathang){
+            return new XMLSerializer().serializeToString(MatHang[i]);
+        }
+    }
+    //Trả về rỗng nếu ko tìm thấy
+    return "";
+}
+
+class BUS{
+    constructor(){
+        busTokenKey = "";
+        this.DanhSachTokenKey = [];
+
+        //Đăng nhập BUS
+        http.post(`http://localhost:${portDAL}/DangNhapBUS?user_name=${taikhoanBUS.user_name}&password=${taikhoanBUS.password}`,
+        {
+            name:"BUS",
+            action:"LoginDAL"
+        },
+        res=>{
+            let buffer = "";
+            res.setEncoding("utf8");
+
+            res.on("data", chunk => {
+                buffer += chunk;
+            });
+
+            res.on("end", () => {
+                busTokenKey = buffer;
+                console.log("Dang nhap BUS thanh cong");
+                
+                //Sau khi có token key thì lấy dữ liệu
+                GetData();
+            });
+        })
+    }
+
+    //Kiểm tra token key có hợp lệ hay không
+    KiemTraTokeKey(tokenkey){
+        if(!tokenkey) return false;
+        for(var i = 0; i < this.DanhSachTokenKey.length; i++){
+            if(this.DanhSachTokenKey[i] == tokenkey){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Đăng nhập tài khoản, kiểm tra và tạo tokenkey tương ứng
+    DangNhap(user_name, password){
+        var DanhSachtaiKhoan = DOM_DanhSachTaiKhoan.getElementsByTagName("TaiKhoan");
+        for(var i = 0; i < DanhSachtaiKhoan.length;i++){
+            if(DanhSachtaiKhoan[i].getAttribute("username") == user_name && DanhSachtaiKhoan.getAttribute("password") == password){
+                //Phát sinh token key và trả về
+                //Dạng tokenkey username-role
+                let tokenkey = user_name+DanhSachtaiKhoan[i].getAttribute("role");
+                this.DanhSachTokenKey.push(tokenkey);
+                console.log(`User: ${user_name} dang nhap thanh cong`);
+                return tokenkey;
+            }
+        }
+        return "";
+    }
+
+    //Đăng xuất tài khoản, xóa token key trên RAM
+    //BUS_service sẽ đảm nhiệm phần lấy token key từ header và gọi hàm
+    DangXuat(tokenkey){
+        if(!tokenkey) return false;
+        for(var i = 0; i < this.DanhSachTokenKey.length; i++){
+            if(this.DanhSachTokenKey[i] == tokenkey){
+                this.DanhSachTokenKey.splice(i,1);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Lấy thông tin mặt hàng trang chủ, trả về chuỗi xml tương ứng
+    LayThongTinMatHangTrangChu(){
+        return CacheDuLieuMatHangTrangChu();
+    }
+
+    //Lấy thông tin danh mục để render giao diện tại trang chủ
+    LayThongTinDanhMucTrangChu(){
+        return Chuoi_DanhSachDanhMucSanPham;
+    }
+
+    //Lấy thong tin mặt hàng theo danh mục cấp 2
+    //ma_so cua danh mục cấp 2
+    LayThongTinMatHangTrangDMC2(ma_so){
+        return CacheDuLieuKhachXemDanhMuc2(ma_so);
+    }
+
+    //Lấy thông tin đặc trưng để render giao diện trang DMC2
+    LayThongTinDacTrungnTrangDMC2(ma_so){
+        let DacTrung = DOM_DanhSachDacTrung.getElementsByTagName("DacTrung");
+        for(let i = 0; i < DacTrung.length;i++){
+            if(DacTrung[i].getAttribute("masodanhmuc2") == ma_so){
+                return new XMLSerializer().serializeToString(DacTrung[i]);
+            }
+        }
+        return "";
+    }
+}
+
+var bus = new BUS();
+module.exports = bus;
