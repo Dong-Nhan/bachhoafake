@@ -96,12 +96,14 @@ http.createServer((req,res)=>{
                 break;
                 case "/BanHang":
                 {
-
-                }
-                break;
-                case "/SuaThongTinTinhTrang":
-                {
-
+                    if(method.KiemTraTokeKey(req.headers.tokenkey))
+                    {
+                        let result = method.BanHang(query.data,req.headers.tokenkey);
+                        res.end(result?"true":"false");
+                    }
+                    else{
+                        res.end();
+                    }
                 }
                 break;
                 default:
