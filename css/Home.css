@@ -1,26 +1,58 @@
 /* HOMEPAGE */
 
+/* <a>*/
+
 /* logo */
+
 #logo {
     height: 2em;
-    width:auto;
+    width: auto;
+}
+
+/* <h4> */
+
+h4 {
+    color: #ff00e1;
+}
+
+/* a */
+
+a:hover,
+a {
+    color: #6a666a;
+    text-decoration: none;
+}
+
+/* nav */
+
+.nav-link {
+    color: #ab55ac;
+}
+
+.nav-tabs .nav-link.active,
+.nav-link:hover {
+    color: #ff00e1;
 }
 
 /* navbar */
+
 .navbar-brand {
-    color: yellow !important;
+    color: #ffdb53 !important;
 }
+
 .navbar {
     background-color: #a349a4;
 }
 
 /* carousel */
+
 /* sản phẩm trên trang chủ */
+
 .hinh-san-pham {
     max-width: 100%;
     height: auto;
 }
 
 .gia-san-pham {
-    color: red;
+    color: #a349a4;
 }
