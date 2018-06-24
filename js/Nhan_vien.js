@@ -1,49 +1,51 @@
-function CreateRow(ma_so) {
-  var row = document.createElement("div");
-  row.setAttribute("class", "row");
+var stt = 1;
 
-  var hinh_anh = document.createElement("div");
-  hinh_anh.className = "col-2 border border-danger";
+function CreateRow(ma_so) {
+  var tr = document.createElement("tr");
+  //row.setAttribute("class", "row");
+
+  var so_thu_tu = document.createElement("td");
+  so_thu_tu.innerText = stt;
+  stt++;
+  tr.appendChild(so_thu_tu);
+
+  var hinh_anh = document.createElement("td");
+  hinh_anh.className = "";
   var img = document.createElement("img");
-  img.style.cssText = "width:10em; height = 10em";
+  img.style.cssText = "";
+  img.className="hinh-san-pham";
   img.src = "img/" + ma_so + ".jpg";
   hinh_anh.appendChild(img);
-  row.appendChild(hinh_anh);
+  tr.appendChild(hinh_anh);
 
-  var ten = document.createElement("div");
-  ten.className = "col-3 border border-danger";
-  ten.style.cssText = "word-wrap: break-word";
+  var ten = document.createElement("td");
+  ten.className = "";
+  ten.style.cssText = "";
   ten.innerHTML = "Tên sản phẩm ";
-  row.appendChild(ten);
+  tr.appendChild(ten);
 
-  var ma_so_col = document.createElement("div");
-  ma_so_col.className = "col-2 border border-danger";
+  var ma_so_col = document.createElement("td");
+  ma_so_col.className = "";
   ma_so_col.innerHTML = ma_so;
-  row.appendChild(ma_so_col);
+  tr.appendChild(ma_so_col);
 
-  var so_luong = document.createElement("div");
-  so_luong.className = "col-1 border border-danger";
-  so_luong.innerHTML = "1";
-  row.appendChild(so_luong);
 
-  var gia = document.createElement("div");
-  gia.className = "col-2 border border-danger";
+  var gia = document.createElement("td");
+  gia.className = "";
   gia.innerHTML = "100000vnd";
-  row.appendChild(gia);
+  tr.appendChild(gia);
 
-  var tinh_trang = document.createElement("div");
-  tinh_trang.className = "col-2 border border-danger";
-  tinh_trang.innerHTML = "Tạm dừng";
-  row.appendChild(tinh_trang);
+  var tinh_trang = document.createElement("td");
+  tinh_trang.className = "";
+  tinh_trang.innerHTML = "Bán";
+  tr.appendChild(tinh_trang);
 
-  document.getElementById("noi_dung").appendChild(row);
+  $(`#tableMatHang tbody`)[0].appendChild(tr);
 }
 
 function CreateTable(loai) {
-  form_ban.style.cssText = "display:none";
-  xac_nhan.value = "true";
-  XacNhanKhach();
-  noi_dung.innerHTML = "";
+  stt = 1;
+  $(`#tableMatHang tbody`)[0].innerHTML = "";
   if (loai == "bia") {
     CreateRow("bia_larue");
     CreateRow("bia_saigon");

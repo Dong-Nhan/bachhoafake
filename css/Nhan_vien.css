@@ -1,6 +1,61 @@
-#navbar>*{
+#navbar>* {
     padding: 0em 2em;
 }
 
-.form-group>input{
+/* navbar */
+
+.navbar-brand {
+    color: #ffdb53 !important;
+}
+
+.navbar {
+    background-color: #a349a4;
+}
+
+/* logo */
+
+#logo {
+    height: 2em;
+    width: auto;
+}
+
+/* nav */
+
+.nav-link {
+    color: #ab55ac;
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: #ff00e1;
+}
+
+/* dropdown */
+
+.dropdown button {
+    border: none;
+    background: #ab55ac;
+}
+
+/* hình sản phẩm */
+
+.hinh-san-pham {
+    max-width: 100%;
+    height: auto;
+}
+
+/* table border */
+
+.table-bordered td,
+.table-bordered th {
+    border-color: #e1a9e2;
+}
+.table thead th {
+    /* border-color: #e1a9e2; */
+    border-bottom: 1px solid #e1a9e2;
+}
+
+/* th */
+th {
+    color: #a349a4;
 }
