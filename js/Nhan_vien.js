@@ -138,3 +138,4 @@ function CreateTable(loai) {
       document.getElementById("dienthoai").innerHTML = "";
     }
   }
+}
