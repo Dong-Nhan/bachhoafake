@@ -346,9 +346,10 @@ class BUS{
             MatHang.setAttribute("dongia", datajson.mat_hang[i].don_gia);
             MatHang.setAttribute("tien", datajson.mat_hang[i].tien);
             PhieuBan.appendChild(MatHang);
-            TongTien+=datajson.mat_hang[i].tien;
+            TongTien+=parseInt(datajson.mat_hang[i].tien);
         }
         PhieuBan.setAttribute("tongtien",TongTien);
+        console.log(new XMLSerializer().serializeToString(PhieuBan))
         DOM_DanhSachPhieuBanHang.appendChild(PhieuBan);
         Chuoi_DanhSachPhieuBanHang = new XMLSerializer().serializeToString(DOM_DanhSachPhieuBanHang);
 

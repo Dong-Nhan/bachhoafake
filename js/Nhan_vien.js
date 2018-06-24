@@ -94,6 +94,7 @@
 
   function XacNhanBanHang() {
     var tbody = document.getElementsByTagName("tbody")[0];
+    var date = new Date();
     var data = {
       ho_ten_khach: "",
       dia_chi: "",
@@ -104,6 +105,7 @@
     data.ho_ten_khach = document.getElementById("hoten").value;
     data.dia_chi = document.getElementById("diachi").value;
     data.dien_thoai = document.getElementById("dienthoai").value;
+    data.ngay= date.getFullYear()+"-"+(date.getMonth()<9?"0":"")+(date.getMonth()+1)+"-"+(date.getDate()<10?"0":"")+date.getDate();
     if (tbody.innerHTML != "") {
       var tr = tbody.getElementsByTagName("tr");
       for (var i = 0; i < tr.length; i++) {
