@@ -16,4 +16,8 @@
         <MatHang maso="mh_sua_dac_ong_tho" soluong="1" dongia="12000" tien="12000"/>
         <MatHang maso="mh_sua_tt_vinamilk" soluong="3" dongia="12000" tien="36000"/>
     </PhieuBanHang>
+    <PhieuBanHang hotennguoimua="Văn" diachi="Quận 1" dienthoai="0123456789" ngay="2018-06-24" hotennhanvien="Đào Thị A" tongtien="48000">
+        <MatHang maso="mh_sua_dac_ong_tho" soluong="1" dongia="12000" tien="12000"/>
+        <MatHang maso="mh_sua_tt_vinamilk" soluong="3" dongia="12000" tien="36000"/>
+    </PhieuBanHang>
 </DanhSachPhieuBanHang>

@@ -90,13 +90,14 @@ function UpdateFunction(url){
         host: 'localhost',
         port: portDAL,
         path: url,
+        method: 'POST',
         headers: {
             'Content-Type': 'text/xml',
             "bustokenkey": busTokenKey
         }
     };
 
-    http.get(options,(res)=>{
+    var request = http.request(options,(res)=>{
         var buffer = "";
         res.setEncoding("utf8");
 
@@ -111,6 +112,8 @@ function UpdateFunction(url){
                 console.log(`Khong the cap nhat lai san pham o DAL`);
         });
     })
+
+    request.end();
 }
 
 
@@ -329,7 +332,6 @@ class BUS{
     //tokenkey để xác định nhân viên bán hàng
     BanHang(data, tokenkey){
         let datajson = JSON.parse(data);
-        console.log(datajson);
         let PhieuBan = DOM_DanhSachPhieuBanHang.createElement("PhieuBanHang");
         PhieuBan.setAttribute("hotennguoimua",datajson.ho_ten_khach);
         PhieuBan.setAttribute("diachi",datajson.dia_chi);
@@ -349,7 +351,6 @@ class BUS{
             TongTien+=parseInt(datajson.mat_hang[i].tien);
         }
         PhieuBan.setAttribute("tongtien",TongTien);
-        console.log(new XMLSerializer().serializeToString(PhieuBan))
         DOM_DanhSachPhieuBanHang.appendChild(PhieuBan);
         Chuoi_DanhSachPhieuBanHang = new XMLSerializer().serializeToString(DOM_DanhSachPhieuBanHang);
 
