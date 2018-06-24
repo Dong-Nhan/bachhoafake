@@ -353,7 +353,7 @@ class BUS{
 
         //serialize data và request sang DAL
         let dataSend = new XMLSerializer().serializeToString(PhieuBan);
-        UpdateFunction(`/Ban?data=${dataSend}`);
+        UpdateFunction(`/BanHang?data=${encodeURIComponent(dataSend)}`);
         return true;
     }
 }

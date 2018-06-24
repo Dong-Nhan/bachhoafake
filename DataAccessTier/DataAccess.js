@@ -81,11 +81,15 @@ class DataAccessTier {
         return Chuoi_DanhSachTaiKhoan;
     }
 
-    CapNhatGiaBan(ma_so, gia_moi) {
+    CapNhatGiaBan(ma_so, gia_moi, callback) {
         //kiểm tra giá
         gia_moi = parseFloat(gia_moi);
         let giaHopLe = !isNaN(gia_moi);
-        if (!giaHopLe) return false;
+        if (!giaHopLe) {
+            callback(true);
+            console.log('Gia ban khong hop le');
+            return;
+        }
 
         //tìm và cập nhật
         let dsMatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
@@ -94,19 +98,29 @@ class DataAccessTier {
                 dsMatHang[i].setAttribute('gia', gia_moi); //cập nhật DOM
                 Chuoi_DanhSachMatHang = new XMLSerializer().serializeToString(DOM_DanhSachMatHang); //cập nhật chuỗi
                 fs.writeFile(DuongDan + TenFile[3], Chuoi_DanhSachMatHang, (err) => { //cập nhật file xml
-                    if (err) console.log(`Ghi file ${TenFile[3]} that bai`);
-                    else console.log(`Ghi file ${TenFile[3]} thanh cong`)
+                    if (err) {
+                        console.log(`Ghi file ${TenFile[3]} that bai`);
+                        console.log('Cap nhat gia ban that bai');
+                        callback(err);
+                    } else {
+                        console.log(`Ghi file ${TenFile[3]} thanh cong`);
+                        console.log('Ban hang thanh cong');
+                        callback(null);
+                    }
                 })
-                console.log(`Cap nhat gia ban ${ma_so} thanh cong`);
-                return true;
+                return;
             }
         }
-        return false;
+        console.log('Khong tim thay mat hang');
     }
 
-    CapNhatTinhTrang(ma_so, tinh_trang) {
+    CapNhatTinhTrang(ma_so, tinh_trang, callback) {
         //kiểm tra tình trạng bán/ngưng đơn giản
-        if (tinh_trang != "ban" && tinh_trang != "ngung") return false;
+        if (tinh_trang != "ban" && tinh_trang != "ngung") {
+            callback(true);
+            console.log('Tinh trang khong dung');
+            return;
+        }
 
         //tìm và cập nhật
         let dsMatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
@@ -115,14 +129,37 @@ class DataAccessTier {
                 dsMatHang[i].setAttribute('tinhtrang', tinh_trang); //cập nhật DOM
                 Chuoi_DanhSachMatHang = new XMLSerializer().serializeToString(DOM_DanhSachMatHang); //cập nhật chuỗi
                 fs.writeFile(DuongDan + TenFile[3], Chuoi_DanhSachMatHang, (err) => { //cập nhật file xml
-                    if (err) console.log(`Ghi file ${TenFile[3]} that bai`);
-                    else console.log(`Ghi file ${TenFile[3]} thanh cong`)
+                    if (err) {
+                        console.log(`Ghi file ${TenFile[3]} that bai`);
+                        console.log('Cap nhat tinh trang that bai');
+                        callback(err);
+                    } else {
+                        console.log(`Ghi file ${TenFile[3]} thanh cong`);
+                        console.log('Cap nhat tinh trang thanh cong');
+                        callback(null);
+                    }
                 })
-                console.log(`Cap nhat tinh trang ${ma_so} thanh cong`);
-                return true;
+                return;
             }
         }
-        return false;
+        console.log('Khong tim thay mat hang');
+    }
+
+    BanHang(data, callback) {
+        let phieuBanHang = new DOMParser().parseFromString(data);
+        DOM_DanhSachPhieuBanHang.documentElement.appendChild(phieuBanHang);
+        Chuoi_DanhSachPhieuBanHang = new XMLSerializer().serializeToString(DOM_DanhSachPhieuBanHang);
+        fs.writeFile(DuongDan + TenFile[0], Chuoi_DanhSachPhieuBanHang, (err) => { //cập nhật file xml
+            if (err) {
+                console.log(`Ghi file ${TenFile[0]} that bai`);
+                console.log('Ban hang that bai');
+                callback(err);
+            } else {
+                console.log(`Ghi file ${TenFile[0]} thanh cong`);
+                console.log('Ban hang thanh cong');
+                callback(null);
+            }
+        })
     }
 
 }

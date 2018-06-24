@@ -58,8 +58,10 @@ http.createServer((req, res) => {
                         res.end();
                         break;
                     }
-                    if (XuLy.CapNhatGiaBan(queryObject.ma_so, queryObject.gia)) res.end("true");
-                    else res.end("false");
+                    XuLy.CapNhatGiaBan(queryObject.ma_so, queryObject.gia, (err) => {
+                        if (err) res.end("false");
+                        else res.end("true");
+                    })
                     break;
                 case "/CapNhatTinhTrang":
                     if (!XuLy.KiemTraBUSTokenKey(req.headers.bustokenkey)) {
@@ -67,8 +69,21 @@ http.createServer((req, res) => {
                         res.end();
                         break;
                     }
-                    if (XuLy.CapNhatTinhTrang(queryObject.ma_so, queryObject.tinh_trang)) res.end("true");
-                    else res.end("false");
+                    XuLy.CapNhatTinhTrang(queryObject.ma_so, queryObject.tinh_trang, (err) => {
+                        if (err) res.end("false");
+                        else res.end("true");
+                    })
+                    break;
+                case "/BanHang":
+                    if (!XuLy.KiemTraBUSTokenKey(req.headers.bustokenkey)) {
+                        console.log("BUS token key khong hop le");
+                        res.end();
+                        break;
+                    }
+                    XuLy.BanHang(queryObject.data, (err) => {
+                        if (err) res.end("false");
+                        else res.end("true");
+                    })
                     break;
                 default:
                     console.log("Truy van khong hop le: ", req.method, parsedUrl.pathname);
