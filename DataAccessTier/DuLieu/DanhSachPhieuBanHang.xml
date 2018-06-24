@@ -12,4 +12,7 @@
         <MatHang maso="mh_sua_tt_dutch_lady" soluong="20" dongia="5000" tien="100000"/>
         <MatHang maso="mh_sua_dac_ong_tho" soluong="10" dongia="20000" tien="200000"/>
     </PhieuBanHang>
+    <PhieuBanHang hotennguoimua="Vi Văn" diachi="Quận 10" dienthoai="0979709213" ngay="" hotennhanvien="Đào Thị A" tongtien="024000">
+        <MatHang maso="mh_sua_tt_dutch_lady" soluong="2" dongia="12000" tien="24000"/>
+    </PhieuBanHang>
 </DanhSachPhieuBanHang>

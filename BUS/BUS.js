@@ -329,6 +329,7 @@ class BUS{
     //tokenkey để xác định nhân viên bán hàng
     BanHang(data, tokenkey){
         let datajson = JSON.parse(data);
+        console.log(datajson);
         let PhieuBan = DOM_DanhSachPhieuBanHang.createElement("PhieuBanHang");
         PhieuBan.setAttribute("hotennguoimua",datajson.ho_ten_khach);
         PhieuBan.setAttribute("diachi",datajson.dia_chi);
