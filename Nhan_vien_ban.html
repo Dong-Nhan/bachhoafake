@@ -47,97 +47,73 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-10">
-                <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Các mặt hàng
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" onclick="CreateTable('bia')">Bia</a>
-                            <a class="dropdown-item" href="#" onclick="CreateTable('sua')">Sữa</a>
-                            <a class="dropdown-item" href="#">Gia vị</a>
+            <div class="col-10 mt-5">
+                <form method="POST" action="">
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="hoten">Họ tên: </label>
+                                <input type="text" name="hoten" id="hoten" class="form-control" placeholder="Nhập họ tên" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="diachi">Địa chỉ: </label>
+                                <input type="text" class="form-control" name="diachi" id="diachi" placeholder="Nhập địa chỉ" required>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="dienthoai">Số điện thoại:</label>
+                                <input type="text" class="form-control" name="dienthoai" id="dienthoai" placeholder="Nhập SDT" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="ngay">Ngày</label>
+                            <input type="date" class="form-control" name="ngay" id="ngay" required>
                         </div>
                     </div>
-                    <button class="btn btn-secondary" type="button" onclick="noi_dung.innerHTML='';form_ban.style.cssText = 'margin: 0'">Bán</button>
-                </nav>
-                <div id="noi_dung" style="margin-top:1em"></div>
-                <div id="form_ban" class="row" style="margin: 0">
-                    <div id="form_thong_tin" class="col-md-12">
-                        <form class="form-inline row" style="width: 100%">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="hoten" class="col-md-3" style="padding: 0">Họ tên: </label>
-                                    <input type="text" name="hoten" id="hoten" class="form-control" placeholder="Nhập họ tên">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="dienthoai" class="col-md-3" style="padding: 0; font-size:0.97em">Điện thoại:</label>
-                                    <input type="text" class="form-control" name="dienthoai" id="dienthoai" placeholder="Nhập SDT">
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label for="diachi" class="col-md-3" style="padding: 0">Địa chỉ: </label>
-                                    <input type="text" class="form-control col-md-8" name="diachi" id="diachi" placeholder="Nhập địa chỉ">
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <button class="btn btn-success" type="button" id="xac_nhan" value="false" onclick="XacNhanKhach()">Xác nhận</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="form_ban_hang" class="col-md-12" style="padding: 0; margin: 1em 0 0 0; display: none">
-                        <form class=" form-inline">
-                            <div class="row col-md-12" style="width: 100%">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="hoten" class="col-md-3" style="padding: 0">Mặt hàng: </label>
-                                        <input type="text" name="mathang" id="mat_hang" class="form-control" placeholder="Mã số hàng">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="soluong" class="col-md-3" style="padding: 0">Số lượng: </label>
-                                        <input type="text" class="form-control" name="soluong" id="so_luong" placeholder="Số lượng" onchange="TinhTien()">
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label for="dongia">Đơn giá: </label>
-                                        <div id="don_gia" style="margin: 0 0 0 1em">12000</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label for="tien" class="col-md-3" style="padding: 0">Tiền: </label>
-                                        <div id="tien" style="margin: 0 0 0 1em"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-1">
-                                    <button class="btn btn-success" type="button" onclick="CreateSellRow()">Đặt hàng</button>
-                                </div>
-                            </div>
-                        </form>
-
-                        <table class="table">
+                    <div class="col-md-11">
+                        <table class="table mt-2">
                             <thead>
                                 <tr>
-                                    <th scope="col">Mặt hàng</th>
-                                    <th scope="col">Số lượng</th>
-                                    <th scope="col">Đơn giá</th>
-                                    <th scope="col">Tiền</th>
+                                    <th scope="col" style="width: 7%">STT</th>
+                                    <th scope="col" style="width: 30%">Mặt hàng</th>
+                                    <th scope="col" style="width: 15%">Số lượng</th>
+                                    <th scope="col" style="width: 20%">Đơn giá</th>
+                                    <th scope="col" style="width: 20%">Thành tiền</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <td scope="row">1</td>
+                                <td>
+                                    <select class="custom-select custom-select-md mb-3">
+                                        <option></option>
+                                        <option data-id="masomathang">Bia Sài Gòn</option>
+                                        <option data-id="masomathang">Sữa tươi Vinamilk</option>
+                                        <option data-id="masomathang">Mì Hảo Hảo</option>
+                                        <option data-id="masomathang">Sữa đặc Ông Thọ</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" name="soLuong" min="1" value="1" required="">
+                                </td>
+                                <td>
+                                </td>
+                                <td></td>
                             </tbody>
                         </table>
-
-                        <button class="btn btn-success" type="button">Xác nhận bán</button>
                     </div>
-                </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="tongtien">Tổng tiền:</label>
+                            <span class="font-weight-bold" id="tongtien">200000</span>
+                        </div>
+                        <button class="btn btn-success" type="submit">Bán hàng</button>
+                        <button type="button" class="btn">Thêm</button>
+                    </div>
+                </form>
             </div>
         </div>
 
