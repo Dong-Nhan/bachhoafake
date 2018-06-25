@@ -35,7 +35,7 @@ http.createServer((req, res) => {
                         role = buffer;
 
                         if (role == "NV") {
-                            req_url = "/Nhan_vien.html";
+                            req_url = "/Nhan_vien_xem.html";
                         } else if (role == "QL") {
                             req_url = "/Quan_ly.html";
                         }
