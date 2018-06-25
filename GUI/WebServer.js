@@ -8,7 +8,7 @@ http.createServer((req, res) => {
     var cookie = method.ParseCookies(req);
 
     // Xử lý nếu req chỉ '/' thì load nội dung file index.html
-    var req_url = (req.url == '/') ? '/../Home.html' : req.url
+    var req_url = (req.url == '/') ? '/Home.html' : req.url
 
     // Xử lý phần header res sẽ gửi về Client
     var file_extension = req.url.lastIndexOf('.');
@@ -25,7 +25,7 @@ http.createServer((req, res) => {
         }[req.url.substr(file_extension)];
 
     switch (req_url) {
-        case "/../Home.html":
+        case "/Home.html":
         case "/Dang_nhap.html":
             {
                 //Nếu vào trang đăng nhập lại mà đã đăng nhập rồi thì sẽ chuyển hướng dựa theo role
@@ -35,9 +35,9 @@ http.createServer((req, res) => {
                         role = buffer;
 
                         if (role == "NV") {
-                            req_url = "/../Nhan_vien.html";
+                            req_url = "/Nhan_vien.html";
                         } else if (role == "QL") {
-                            req_url = "/../Quan_ly.html";
+                            req_url = "/Quan_ly.html";
                         }
         
                         method.DocFile(req_url, (data) => {
@@ -67,7 +67,8 @@ http.createServer((req, res) => {
                 }
             }
             break;
-        case "/Nhan_vien.html":
+        case "/Nhan_vien_ban.html":
+        case "Nhan_vien_xem.html":
             {
                 //Kiểm tra token key trong cookie và xác nhận xem có vào được trang ko theo role
                 let role;
@@ -75,9 +76,7 @@ http.createServer((req, res) => {
                     method.KiemTraTokenKey(cookie.tokenkey, (buffer) => {
                         role = buffer;
 
-                        if (role == "NV") {
-                            req_url = "/../Nhan_vien.html";
-                        } else {
+                        if (role != "NV") {
                             console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
                             res.writeHead(404, 'Not found')
                             res.end();
@@ -114,7 +113,7 @@ http.createServer((req, res) => {
                         role = buffer;
 
                         if (role == "QL") {
-                            req_url = "/../Quan_ly.html";
+                            req_url = "/Quan_ly.html";
                         } else {
                             console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
                             res.writeHead(404, 'Not found')
@@ -145,9 +144,20 @@ http.createServer((req, res) => {
             break;
         default:
             {
-                console.log('==> Error 404: Page doesnt exist ' + res.url)
-                res.writeHead(404, 'Not found')
-                res.end()
+                //xài đỡ để đọc mấy file js, css
+                method.DocFile(req_url, (data) => {
+                    if (data != "") {
+                        res.setHeader('Content-type', header_type);
+                        res.end(data);
+                        console.log(req.url, header_type);
+                    } else {
+                        res.writeHead(404, 'Not found')
+                        res.end()
+                    }
+                });
+                // console.log('==> Error 404: Page doesnt exist ' + res.url)
+                // res.writeHead(404, 'Not found')
+                // res.end()
             }
             break;
     }
