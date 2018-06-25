@@ -70,6 +70,20 @@ http.createServer((req,res)=>{
                     }
                 }
                 break;
+                default:
+                    console.log("Truy van khong hop le: ", req.method, pathname);
+                    res.end();
+            }
+            break;
+        case "POST":
+        {
+            switch(pathname){
+                case "/DangNhap":
+                {
+                    let tokenkey = method.DangNhap(query.user_name,query.password);
+                    res.end(tokenkey);
+                }
+                break;
                 case "/SuaThongTinDonGia":
                 {
                     if(method.KiemTraTokeKey(req.headers.tokenkey))
@@ -104,20 +118,6 @@ http.createServer((req,res)=>{
                     else{
                         res.end();
                     }
-                }
-                break;
-                default:
-                    console.log("Truy van khong hop le: ", req.method, pathname);
-                    res.end();
-            }
-            break;
-        case "POST":
-        {
-            switch(pathname){
-                case "/DangNhap":
-                {
-                    let tokenkey = method.DangNhap(query.user_name,query.password);
-                    res.end(tokenkey);
                 }
                 break;
                 default:
