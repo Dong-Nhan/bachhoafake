@@ -1,7 +1,6 @@
-#navbar>* {
-    padding: 0em 2em;
+.material-icons {
+    font-size: 15px;
 }
-
 /* navbar */
 
 .navbar-brand {
