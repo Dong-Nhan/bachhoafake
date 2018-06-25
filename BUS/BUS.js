@@ -190,7 +190,7 @@ function LayTenNhanVien(tokenkey){
 class BUS{
     constructor(){
         busTokenKey = "";
-        this.DanhSachTokenKey = ["nv1-NV"];
+        this.DanhSachTokenKey = ["ql1-QL"];
 
         //Đăng nhập BUS
         http.post(`http://localhost:${portDAL}/DangNhapBUS?user_name=${taikhoanBUS.user_name}&password=${taikhoanBUS.password}`,
@@ -358,6 +358,17 @@ class BUS{
         let dataSend = new XMLSerializer().serializeToString(PhieuBan);
         UpdateFunction(`/BanHang?data=${encodeURIComponent(dataSend)}`);
         return true;
+    }
+
+    KiemTraTokeKeyVaRole(tokenkey){
+        if(!tokenkey) return "";
+        for(var i = 0; i < this.DanhSachTokenKey.length; i++){
+            if(this.DanhSachTokenKey[i] == tokenkey){
+                return tokenkey.substring(tokenkey.length-2,tokenkey.length);
+            }
+        }
+        //Nếu ko tìm thấy trả về rỗng
+        return "";
     }
 }
 

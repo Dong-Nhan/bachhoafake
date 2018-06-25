@@ -3,7 +3,7 @@ var url = require('url')
 var method = require('./BUS.js')
 const port = 3001
 
-http.createServer((req,res)=>{
+http.createServer((req,res)=>{    
     console.log(`${req.method} ${req.url}`);
     res.setHeader("Access-Control-Allow-Origin", "*");
     const { pathname, query } = url.parse(req.url, true);
@@ -70,6 +70,12 @@ http.createServer((req,res)=>{
                     }
                 }
                 break;
+                case "/KiemTraTokenKeyVaRole":
+                {
+                    let role = method.KiemTraTokeKeyVaRole(req.headers.tokenkey);
+                    res.end(role);
+                }
+                break;
                 default:
                     console.log("Truy van khong hop le: ", req.method, pathname);
                     res.end();
@@ -81,6 +87,7 @@ http.createServer((req,res)=>{
                 case "/DangNhap":
                 {
                     let tokenkey = method.DangNhap(query.user_name,query.password);
+                    res.setHeader('Set-Cookie', `tokenkey=${tokenkey}`);
                     res.end(tokenkey);
                 }
                 break;
