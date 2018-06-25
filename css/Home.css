@@ -56,3 +56,12 @@ a {
 .gia-san-pham {
     color: #a349a4;
 }
+
+/* text-success */
+.text-secondary:not(div) {
+    color: #d714a5 !important;
+}
+/* 
+.text-secondary {
+    color: #d714a5 !important;
+} */
