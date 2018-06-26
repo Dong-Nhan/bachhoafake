@@ -59,7 +59,7 @@ http.createServer((req, res) => {
                     break;
                 case "/KiemTraTokenKeyVaRole":
                     {
-                        let role = method.KiemTraTokeKeyVaRole(cookie.tokenkey);
+                        let role = method.KiemTraTokeKeyVaRole(req.headers.tokenkey);
                         res.end(role);
                     }
                     break;
