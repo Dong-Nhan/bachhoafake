@@ -168,9 +168,6 @@ http.createServer((req, res) => {
                 } 
                 else
                 {
-                    /*console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
-                    res.writeHead(404, 'Not found')
-                    res.end()*/
                     method.DocFile("/Dang_nhap.html", (data) => {
                         if (data != "") {
                             res.setHeader('Content-type', header_type);
