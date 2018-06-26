@@ -79,9 +79,9 @@ function TaoNoiDungDanhMucCap2(danhSachDanhMucCap2, isActive){
     for(var i = 0; i < danhMucCap2.length; i++){
         var a = document.createElement('a');
         a.setAttribute('class',"col-2");
-        a.setAttribute('href',"#");
+        a.setAttribute('href',"./XemDanhMuc2.html?masodanhmuc2="+danhMucCap2[i].getAttribute('maso'));
         a.setAttribute('id',danhMucCap2[i].getAttribute('maso'));
-        a.setAttribute('onclick','ClickDMC2(this.id, danhSachMatHang)');
+        //a.setAttribute('onclick','ClickDMC2(this.id, danhSachMatHang)');
         
         var img = document.createElement('img');
         img.setAttribute('class',"d-block mx-auto");

@@ -1,19 +1,27 @@
 var http = require("http")
 var method = require("./WebAPI.js")
 var queryString = require('querystring');
+var url = require('url')
 
 const port = 3000
 
 http.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
     let cookie = queryString.parse(req.headers.cookie);
+    const {
+        pathname,
+        query
+    } = url.parse(req.url, true);
 
     // Xử lý nếu req chỉ '/' thì load nội dung file index.html
-    var req_url = (req.url == '/') ? '/Home.html' : req.url
+    var req_url = (pathname == '/') ? '/Home.html' : pathname
 
     // Xử lý phần header res sẽ gửi về Client
-    var file_extension = req.url.lastIndexOf('.');
-    var header_type = (file_extension == -1 && req.url != '/') ?
+    var file_extension_start = req.url.lastIndexOf('.');
+    var file_extension_end = req.url.lastIndexOf('?');
+    var file_extension = file_extension_end!=-1? req.url.substring(file_extension_start,file_extension_end):req.url.substr(file_extension_start);
+    console.log("extension "+ file_extension);
+    var header_type = (file_extension_start == -1 && req.url != '/') ?
         'text/plain' : {
             '/': 'text/html',
             '.html': 'text/html',
@@ -23,10 +31,12 @@ http.createServer((req, res) => {
             '.gif': 'image/gif',
             '.css': 'text/css',
             '.js': 'text/javascript'
-        }[req.url.substr(file_extension)];
+        }[file_extension];
 
     switch (req_url) {
         case "/Home.html":
+        case "/XemDanhMuc2.html":
+        case "/XemChiTiet.html":
         case "/Dang_nhap.html":
             {
                 //Nếu vào trang đăng nhập lại mà đã đăng nhập rồi thì sẽ chuyển hướng dựa theo role

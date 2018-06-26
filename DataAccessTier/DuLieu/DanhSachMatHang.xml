@@ -76,7 +76,7 @@
         </MoTaChiTiet>
         <DacTrung masodanhmuc2="dm2_bia">
             <ThuongHieu maso="th_tiger">Tiger</ThuongHieu>
-            <Loai ten="Loại đóng gói">Lon</Loai>
+            <Loai ten="Loại đóng hộp">Bia lon</Loai>
         </DacTrung>
     </MatHang>
     <MatHang ten="Hạt nêm Knorr Nấm Hương" maso="mh_hat_nem_knorr_nam_huong" soluongtrongmathang="1" khoiluongtinh="25g" gia="4000" tinhtrang="ban" thuonghieu="Knorr" masodanhmuc1="dm1_gia_vi_nau_an" masodanhmuc2="dm2_hat_nem">
@@ -92,7 +92,7 @@
         </MoTaChiTiet>
         <DacTrung masodanhmuc2="dm2_hat_nem">
             <ThuongHieu maso="th_knorr">Knorr</ThuongHieu>
-            <Loai ten="Loại đóng gói">Gói</Loai>
+            <Loai ten="Loại">Hạt nêm chay</Loai>
         </DacTrung>
     </MatHang>
 </DanhSachMatHang>
