@@ -63,4 +63,36 @@
             <Loai ten="Loại đóng gói">Lon</Loai>
         </DacTrung>
     </MatHang>
+    <MatHang ten="Bia Tiger xanh" maso="mh_bia_tiger_xanh" soluongtrongmathang="1" khoiluongtinh="330ml" gia="14000" tinhtrang="ban" thuonghieu="Tiger" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_bia">
+        <ThongTinChiTiet>
+            <ThongTin>Nồng độ cồn 5%</ThongTin>
+            <ThongTin>Hương thơm nồng vị lúa mạch</ThongTin>
+            <ThongTin>Ngon hơn khi uống lạnh (10-15°C)</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Thành phần: Nước, đại mạch, hoa bia,..... Với thành phần từ đại mạch, hoa bia và ngũ cốc, Bia Tiger có vị đậm đà, khi uống rất êm và độ cồn không quá cao giúp cuộc vui được kéo dài.</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Uống trực tiếp trong lon hoặc đổ ra ly, ngon hơn khi uống lạnh, tốt nhất ở 10°C - 15°C.</MoTa>
+            <MoTa ten="Bảo quản">Bảo quản nơi sạch sẽ, khô ráo, thoáng mát. Tránh ánh nắng mặt trời.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_bia">
+            <ThuongHieu maso="th_tiger">Tiger</ThuongHieu>
+            <Loai ten="Loại đóng hộp">Bia lon</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Hạt nêm Knorr Nấm Hương" maso="mh_hat_nem_knorr_nam_huong" soluongtrongmathang="1" khoiluongtinh="25g" gia="4000" tinhtrang="ban" thuonghieu="Knorr" masodanhmuc1="dm1_gia_vi_nau_an" masodanhmuc2="dm2_hat_nem">
+        <ThongTinChiTiet>
+            <ThongTin>Hương vị thanh ngọt, mùi nấm thơm ngon</ThongTin>
+            <ThongTin>Đảm bảo An toàn cho sức khỏe</ThongTin>
+            <ThongTin>Đóng gói nhỏ gọn, tiện bảo quản</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Hạt nêm Knorr Nấm Hương có các nguyên liệu như bột chiết xuất nấm hương, muối I-ốt, bột sắn, hương nấm hương tổng hợp, đường, chất điều vị...</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Canh : Dùng15g, Kho : Dùng 10g, Xào : Dùng 5g, Ướp : Dùng 5g.</MoTa>
+            <MoTa ten="Bảo quản">Để ở nơi khô ráo, tránh ánh nắng trực tiếp.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_hat_nem">
+            <ThuongHieu maso="th_knorr">Knorr</ThuongHieu>
+            <Loai ten="Loại">Hạt nêm chay</Loai>
+        </DacTrung>
+    </MatHang>
 </DanhSachMatHang>

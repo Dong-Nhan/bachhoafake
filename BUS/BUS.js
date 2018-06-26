@@ -155,7 +155,9 @@ function CacheDuLieuKhachXemDanhMuc2(masodanhmuc2){
     let MatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
     for(let i = 0; i < MatHang.length;i++){
         if(MatHang[i].getAttribute("masodanhmuc2") == masodanhmuc2){
-            DanhSachMatHangDMC2.appendChild(MatHang[i].cloneNode());
+            let MatHangClone = MatHang[i].cloneNode();
+            MatHangClone.appendChild(MatHang[i].getElementsByTagName('ThuongHieu')[0].cloneNode());
+            DanhSachMatHangDMC2.appendChild(MatHangClone);
         }
     }
     let ChuoiDanhSachMatHangDMC2 = new XMLSerializer().serializeToString(DanhSachMatHangDMC2);

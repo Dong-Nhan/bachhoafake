@@ -22,7 +22,7 @@
     <!--Navbar/Header-->
     <nav class="navbar navbar-expand-md navbar-dark py-0 sticky-top">
         <div class="container">
-            <a class="navbar-brand " href="#">
+            <a class="navbar-brand " href="./">
                 <img src="img/logo.png" id="logo"> Bách hóa
                 <b>FAKE</b>
             </a>
@@ -33,13 +33,13 @@
             <div class="collapse navbar-collapse" id="navbarsExample04">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Trang chủ</a>
+                        <a class="nav-link" href="./">Trang chủ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Liên hệ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Đăng nhập</a>
+                        <a class="nav-link" href="./Dang_nhap.html">Đăng nhập</a>
                     </li>
                 </ul>
             </div>
@@ -52,7 +52,7 @@
             <span>
                 Đồ uống >
             </span>
-            <a class="text-secondary" href="#"> Bia </a>
+            <a class="text-secondary" href="./XemDanhMuc2.html?masodanhmuc2=dm2_bia"> Bia </a>
         </h4>
         <ul class="nav nav-tabs" id="danhMucCap2" role="tablist">
             <li class="nav-item">
@@ -95,7 +95,7 @@
             </div>
         </div>
         <!-- Các sản phẩm trong danh mục cấp 2 -->
-        <div class="row mt-5">
+        <div class="row mt-5" id='danhSachSanPham'>
             <a class="col-md-4 col-lg-3 mb-5 p-0" href="#">
                 <div class="border border-light">
                     <img class="hinh-san-pham d-block mx-auto" src="./img/big-su-tu-trang/hinh1.jpg">
@@ -152,6 +152,28 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
+    <script src="./js/XemDanhMuc2.js"></script>
+    <script>
+            /*      Biến dùng chung      */
+            var danhMuc1, danhSachMatHang, danhSachDacTrung;
+            /*      Biến cố khởi động      */
+            document.body.onload = ()=>{
+                danhMuc1 = DocDanhMuc1();
+                danhSachMatHang = DocDanhSachMatHang();
+                danhSachDacTrung = DocDanhSachDacTrung(danhMuc1.getElementsByTagName('DanhMucCap2'));
+    
+                var tieuDeDanhMuc = document.getElementsByTagName('h4')[0];
+                var danhMucCap2 = document.getElementById('danhMucCap2');
+                var myTabContent = document.getElementById('myTabContent');
+                var danhSachSanPham = document.getElementById('danhSachSanPham');
+                
+                tieuDeDanhMuc.innerHTML = TaoTieuDeTheoDanhMuc(danhMuc1,GetURLParameter('masodanhmuc2')).innerHTML;
+                danhMucCap2.innerHTML = TaoDanhMucCap2(danhMuc1.getElementsByTagName('DanhMucCap2')).innerHTML;
+                myTabContent.innerHTML = TaoTabThuongHieu(danhSachDacTrung).innerHTML;
+                danhSachSanPham.innerHTML = TaoDanhSachMatHang(danhSachMatHang).innerHTML;
+            }
+            
+        </script>
 </body>
 
 </html>
