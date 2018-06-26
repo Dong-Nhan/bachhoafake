@@ -81,6 +81,7 @@ function TaoNoiDungDanhMucCap2(danhSachDanhMucCap2, isActive){
         a.setAttribute('class',"col-2");
         a.setAttribute('href',"#");
         a.setAttribute('id',danhMucCap2[i].getAttribute('maso'));
+        a.setAttribute('onclick','ClickDMC2(this.id, danhSachMatHang)');
         
         var img = document.createElement('img');
         img.setAttribute('class',"d-block mx-auto");
@@ -152,4 +153,20 @@ function TaoDanhSachMatHang(danhSachMatHang){
     }
 
     return div;
+}
+
+
+/************       Xử lý nghiệp vụ       *******************/
+function ClickDMC2(id, danhSachMatHang){
+    var div = document.createElement('div');
+
+    for(var i = 0; i < danhSachMatHang.length;i++){
+        if(danhSachMatHang[i].getAttribute('masodanhmuc2') == id)
+        {
+            var aMatHang = TaoNoiDungMatHang(danhSachMatHang[i]);
+            div.appendChild(aMatHang); 
+        }
+    }
+
+    document.getElementById('danhSachSanPham').innerHTML = div.innerHTML;
 }
