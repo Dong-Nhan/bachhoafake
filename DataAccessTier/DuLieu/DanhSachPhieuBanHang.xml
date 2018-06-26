@@ -20,4 +20,9 @@
         <MatHang maso="mh_sua_dac_ong_tho" soluong="1" dongia="12000" tien="12000"/>
         <MatHang maso="mh_sua_tt_vinamilk" soluong="3" dongia="12000" tien="36000"/>
     </PhieuBanHang>
+    <PhieuBanHang hotennguoimua="z" diachi="a" dienthoai="1" ngay="2018-06-27" hotennhanvien="Đào Thị A" tongtien="21000">
+        <MatHang maso="mh_sua_tt_vinamilk" soluong="1" dongia="5000" tien="5000"/>
+        <MatHang maso="mh_sua_tt_vinamilk" soluong="2" dongia="5000" tien="10000"/>
+        <MatHang maso="mh_sua_tt_dutch_lady" soluong="1" dongia="6000" tien="6000"/>
+    </PhieuBanHang>
 </DanhSachPhieuBanHang>

@@ -1,4 +1,5 @@
 var http = require("http");
+var queryString = require('querystring');
 http.post = require("http-post");
 var DOMParser = require("xmldom").DOMParser;
 var XMLSerializer = require("xmldom").XMLSerializer;
@@ -192,7 +193,7 @@ function LayTenNhanVien(tokenkey){
 class BUS{
     constructor(){
         busTokenKey = "";
-        this.DanhSachTokenKey = ["nv1-NV"];
+        this.DanhSachTokenKey = [];
 
         //Đăng nhập BUS
         http.post(`http://localhost:${portDAL}/DangNhapBUS?user_name=${taikhoanBUS.user_name}&password=${taikhoanBUS.password}`,
@@ -252,7 +253,7 @@ class BUS{
         for(var i = 0; i < this.DanhSachTokenKey.length; i++){
             console.log(this.DanhSachTokenKey[i]);
             if(this.DanhSachTokenKey[i] == tokenkey){
-                //this.DanhSachTokenKey.splice(i,1);
+                this.DanhSachTokenKey.splice(i,1);
                 return true;
             }
         }
@@ -333,24 +334,24 @@ class BUS{
     }*/
     //tokenkey để xác định nhân viên bán hàng
     BanHang(data, tokenkey){
-        let datajson = JSON.parse(data);
+        console.log(data);
         let PhieuBan = DOM_DanhSachPhieuBanHang.createElement("PhieuBanHang");
-        PhieuBan.setAttribute("hotennguoimua",datajson.ho_ten_khach);
-        PhieuBan.setAttribute("diachi",datajson.dia_chi);
-        PhieuBan.setAttribute("dienthoai",datajson.dien_thoai);
-        PhieuBan.setAttribute("ngay",datajson.ngay);
+        PhieuBan.setAttribute("hotennguoimua",data.ho_ten_khach);
+        PhieuBan.setAttribute("diachi",data.dia_chi);
+        PhieuBan.setAttribute("dienthoai",data.dien_thoai);
+        PhieuBan.setAttribute("ngay",data.ngay);
         let NhanVienBan = LayTenNhanVien(tokenkey);
         PhieuBan.setAttribute("hotennhanvien",NhanVienBan);
 
         let TongTien = 0;
-        for(let i = 0; i < datajson.mat_hang.length;i++){
+        for(let i = 0; i < data.ma_so.length;i++){
             let MatHang = DOM_DanhSachPhieuBanHang.createElement("MatHang");
-            MatHang.setAttribute("maso", datajson.mat_hang[i].ma_so);
-            MatHang.setAttribute("soluong", datajson.mat_hang[i].so_luong);
-            MatHang.setAttribute("dongia", datajson.mat_hang[i].don_gia);
-            MatHang.setAttribute("tien", datajson.mat_hang[i].tien);
+            MatHang.setAttribute("maso", data.ma_so[i]);
+            MatHang.setAttribute("soluong", data.so_luong[i]);
+            MatHang.setAttribute("dongia", data.don_gia[i]);
+            MatHang.setAttribute("tien", data.tien[i]);
             PhieuBan.appendChild(MatHang);
-            TongTien+=parseInt(datajson.mat_hang[i].tien);
+            TongTien+=parseInt(data.tien[i]);
         }
         PhieuBan.setAttribute("tongtien",TongTien);
         DOM_DanhSachPhieuBanHang.appendChild(PhieuBan);

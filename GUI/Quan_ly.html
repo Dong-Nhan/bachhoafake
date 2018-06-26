@@ -30,7 +30,9 @@
                         <a class="nav-link" href="#">Quản lý: Nguyễn Văn A</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Đăng xuất</a>
+                        <form id="formDangXuat" action="http://localhost:3001/DangXuat" method="POST">
+                            <button class="btn btn-secondary" type="submit">Đăng xuất</button>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -51,10 +53,7 @@
                         aria-expanded="false">
                         Danh mục
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" onclick="CreateTable('bia')">Bia</a>
-                        <a class="dropdown-item" href="#" onclick="CreateTable('sua')">Sữa</a>
-                        <a class="dropdown-item" href="#">Gia vị</a>
+                    <div id="dropdownMenu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     </div>
                 </div>
                 <div class="col-11 pl-0">
@@ -75,21 +74,17 @@
                         </tbody>
                     </table>
                 </div>
-
-                <div id="noi_dung" style="margin-top:1em"></div>
             </div>
         </div>
     </div>
     </div>
 
-
-    <script src="js/Quan_ly.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="js/Quan_ly.js"></script>
 
 </body>
 

@@ -29,7 +29,9 @@
                         <a class="nav-link" href="#">Nhân viên: Đào Thị A</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:3001/DangXuat">Đăng xuất</a>
+                        <form id="formDangXuat" action="http://localhost:3001/DangXuat" method="POST">
+                            <button class="btn btn-secondary" type="submit">Đăng xuất</button>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -37,57 +39,52 @@
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 mt-5">
+            <div class="col-2 my-5">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold active " href="#">Xem hàng</a>
+                        <a class="nav-link font-weight-bold active " href="/Nhan_vien_xem.html">Xem hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#">Bán hàng</a>
+                        <a class="nav-link font-weight-bold" href="/Nhan_vien_ban.html">Bán hàng</a>
                     </li>
                 </ul>
             </div>
             <div class="col-10 mt-5">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Danh mục
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" onclick="CreateTable('bia')">Bia</a>
-                            <a class="dropdown-item" href="#" onclick="CreateTable('sua')">Sữa</a>
-                            <a class="dropdown-item" href="#">Gia vị</a>
-                        </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Danh mục
+                    </button>
+                    <div id="dropdownMenu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     </div>
-                    <table id="tableMatHang" class="table table-bordered mt-4">
-                            <thead>
-                              <tr>
-                                <th scope="col" style="width: 4%;">STT</th>
-                                <th scope="col" style="width: 13%;">Hình ảnh</th>
-                                <th scope="col" style="width: 20%">Tên mặt hàng</th>
-                                <th scope="col" style="">Mã số</th>
-                                <th scope="col"style="width: 20%;">Đơn giá</th>
-                                <th scope="col" style="width: 20%;">Tình trạng</th>    
-                              </tr>
-                            </thead>
-                            <tbody>
+                </div>
+                <table id="tableMatHang" class="table table-bordered mt-4">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 4%;">STT</th>
+                            <th scope="col" style="width: 13%;">Hình ảnh</th>
+                            <th scope="col" style="width: 20%">Tên mặt hàng</th>
+                            <th scope="col" style="">Mã số</th>
+                            <th scope="col" style="width: 20%;">Đơn giá</th>
+                            <th scope="col" style="width: 20%;">Tình trạng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                            </tbody>
-                          </table>
-                <div id="noi_dung" style="margin-top:1em"></div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
     </div>
 
 
-    <script src="js/Nhan_vien.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="js/Nhan_vien.js"></script>
 
 </body>
 

@@ -32,7 +32,7 @@
 
 /* dropdown */
 
-.dropdown button {
+.dropdown button, .btn-secondary {
     border: none;
     background: #ab55ac;
 }

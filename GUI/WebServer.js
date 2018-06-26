@@ -89,16 +89,12 @@ http.createServer((req, res) => {
                         role = buffer;
 
                         if (role != "NV") {
-                            if(role == 'QL')
-                            {
-                                console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
-                                res.writeHead(404, 'Not found')
-                                res.end();
-                                return;
-                            }
-                            else{
-
-                            }
+                            console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
+                            res.writeHead(302, {
+                                'Location': 'http://localhost:3000/Dang_nhap.html'
+                            });
+                            res.end();
+                            return;
                         }
         
                         method.DocFile(req_url, (data) => {
@@ -115,19 +111,11 @@ http.createServer((req, res) => {
                 } 
                 else
                 {
-                    /*console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
-                    res.writeHead(404, 'Not found')
-                    res.end()*/
-                    method.DocFile("/Dang_nhap.html", (data) => {
-                        if (data != "") {
-                            res.setHeader('Content-type', header_type);
-                            res.end(data);
-                            console.log(req.url, header_type);
-                        } else {
-                            res.writeHead(404, 'Not found')
-                            res.end()
-                        }
+                    console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
+                    res.writeHead(302, {
+                        'Location': 'http://localhost:3000/Dang_nhap.html'
                     });
+                    res.end();
                     break;
                 }
             }
@@ -137,21 +125,18 @@ http.createServer((req, res) => {
             {
                 //Kiểm tra token key trong cookie và xác nhận xem có vào được trang ko theo role
                 let role;
+                console.log(typeof cookie.tokenkey);
                 if (typeof cookie.tokenkey !== "undefined") {
                     method.KiemTraTokenKey(cookie.tokenkey, (buffer) => {
                         role = buffer;
 
                         if (role != "QL") {
-                            if(role == 'NV')
-                            {
-                                console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
-                                res.writeHead(404, 'Not found')
-                                res.end();
-                                return;
-                            }
-                            else{
-
-                            }
+                            console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
+                            res.writeHead(302, {
+                                'Location': 'http://localhost:3000/Dang_nhap.html'
+                            });
+                            res.end();
+                            return;
                         }
         
                         method.DocFile(req_url, (data) => {
@@ -168,16 +153,11 @@ http.createServer((req, res) => {
                 } 
                 else
                 {
-                    method.DocFile("/Dang_nhap.html", (data) => {
-                        if (data != "") {
-                            res.setHeader('Content-type', header_type);
-                            res.end(data);
-                            console.log(req.url, header_type);
-                        } else {
-                            res.writeHead(404, 'Not found')
-                            res.end()
-                        }
+                    console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
+                    res.writeHead(302, {
+                        'Location': 'http://localhost:3000/Dang_nhap.html'
                     });
+                    res.end();
                     break;
                 }
             }
