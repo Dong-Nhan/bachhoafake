@@ -1,11 +1,13 @@
 var http = require("http")
 var method = require("./WebAPI.js")
+var queryString = require('querystring');
 
 const port = 3000
 
 http.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
-    var cookie = method.ParseCookies(req);
+    //var cookie = method.ParseCookies(req);
+    let cookie = queryString.parse(req.headers.cookie);
 
     // Xử lý nếu req chỉ '/' thì load nội dung file index.html
     var req_url = (req.url == '/') ? '/Home.html' : req.url
@@ -68,7 +70,7 @@ http.createServer((req, res) => {
             }
             break;
         case "/Nhan_vien_ban.html":
-        case "Nhan_vien_xem.html":
+        case "/Nhan_vien_xem.html":
             {
                 //Kiểm tra token key trong cookie và xác nhận xem có vào được trang ko theo role
                 let role;

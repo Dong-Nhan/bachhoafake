@@ -190,7 +190,7 @@ function LayTenNhanVien(tokenkey){
 class BUS{
     constructor(){
         busTokenKey = "";
-        this.DanhSachTokenKey = ["ql1-QL"];
+        this.DanhSachTokenKey = ["nv1-NV"];
 
         //Đăng nhập BUS
         http.post(`http://localhost:${portDAL}/DangNhapBUS?user_name=${taikhoanBUS.user_name}&password=${taikhoanBUS.password}`,
