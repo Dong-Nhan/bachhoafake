@@ -89,10 +89,16 @@ http.createServer((req, res) => {
                         role = buffer;
 
                         if (role != "NV") {
-                            console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
-                            res.writeHead(404, 'Not found')
-                            res.end();
-                            return;
+                            if(role == 'QL')
+                            {
+                                console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
+                                res.writeHead(404, 'Not found')
+                                res.end();
+                                return;
+                            }
+                            else{
+
+                            }
                         }
         
                         method.DocFile(req_url, (data) => {
@@ -109,9 +115,19 @@ http.createServer((req, res) => {
                 } 
                 else
                 {
-                    console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
+                    /*console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
                     res.writeHead(404, 'Not found')
-                    res.end()
+                    res.end()*/
+                    method.DocFile("/Dang_nhap.html", (data) => {
+                        if (data != "") {
+                            res.setHeader('Content-type', header_type);
+                            res.end(data);
+                            console.log(req.url, header_type);
+                        } else {
+                            res.writeHead(404, 'Not found')
+                            res.end()
+                        }
+                    });
                     break;
                 }
             }
@@ -126,10 +142,16 @@ http.createServer((req, res) => {
                         role = buffer;
 
                         if (role != "QL") {
-                            console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
-                            res.writeHead(404, 'Not found')
-                            res.end();
-                            return;
+                            if(role == 'NV')
+                            {
+                                console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
+                                res.writeHead(404, 'Not found')
+                                res.end();
+                                return;
+                            }
+                            else{
+
+                            }
                         }
         
                         method.DocFile(req_url, (data) => {
@@ -146,9 +168,19 @@ http.createServer((req, res) => {
                 } 
                 else
                 {
-                    console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
+                    /*console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
                     res.writeHead(404, 'Not found')
-                    res.end()
+                    res.end()*/
+                    method.DocFile("/Dang_nhap.html", (data) => {
+                        if (data != "") {
+                            res.setHeader('Content-type', header_type);
+                            res.end(data);
+                            console.log(req.url, header_type);
+                        } else {
+                            res.writeHead(404, 'Not found')
+                            res.end()
+                        }
+                    });
                     break;
                 }
             }

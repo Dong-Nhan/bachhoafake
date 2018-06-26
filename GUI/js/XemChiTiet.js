@@ -93,7 +93,7 @@ function TaoChiTietSanPham(matHang){
 
     var h3 = document.createElement('h3');
     h3.setAttribute('class',"col-md-12 text-secondary");
-    h3.innerHTML = matHang.getAttribute('ten');
+    h3.innerHTML = matHang.getAttribute('ten') + " " + matHang.getAttribute('khoiluongtinh');
     divCol7.appendChild(h3);
 
     var divGia= document.createElement('div');
