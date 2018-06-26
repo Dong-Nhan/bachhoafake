@@ -6,7 +6,6 @@ const port = 3000
 
 http.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
-    //var cookie = method.ParseCookies(req);
     let cookie = queryString.parse(req.headers.cookie);
 
     // Xử lý nếu req chỉ '/' thì load nội dung file index.html
@@ -71,6 +70,7 @@ http.createServer((req, res) => {
             break;
         case "/Nhan_vien_ban.html":
         case "/Nhan_vien_xem.html":
+        case "/js/Nhan_vien.js":
             {
                 //Kiểm tra token key trong cookie và xác nhận xem có vào được trang ko theo role
                 let role;
@@ -107,6 +107,7 @@ http.createServer((req, res) => {
             }
             break;
         case "/Quan_ly.html":
+        case "/js/Quan_ly.js":
             {
                 //Kiểm tra token key trong cookie và xác nhận xem có vào được trang ko theo role
                 let role;
@@ -114,9 +115,7 @@ http.createServer((req, res) => {
                     method.KiemTraTokenKey(cookie.tokenkey, (buffer) => {
                         role = buffer;
 
-                        if (role == "QL") {
-                            req_url = "/Quan_ly.html";
-                        } else {
+                        if (role != "QL") {
                             console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
                             res.writeHead(404, 'Not found')
                             res.end();
