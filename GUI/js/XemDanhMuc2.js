@@ -47,6 +47,7 @@ function TaoTieuDeTheoDanhMuc(danhMuc1, masodanhmuc2){
 
     var span = document.createElement('span');
     span.innerHTML=danhMuc1.getAttribute('ten')+' > ';
+    document.title = danhMuc1.getAttribute('ten');    
 
     var a = document.createElement('a');
     a.setAttribute('class',"text-secondary");
@@ -84,6 +85,7 @@ function TaoNoiDungDanhMucCap2(danhMuc, isActive){
     a.setAttribute('aria-controls',a.getAttribute('id')+"-content");
     a.setAttribute('aria-selected',"true");
     a.innerHTML = danhMuc.getAttribute('ten');
+    a.setAttribute('onclick',`location.href ='./XemDanhMuc2.html?masodanhmuc1=${GetURLParameter('masodanhmuc1')}&masodanhmuc2=${danhMuc.getAttribute('maso')}'`);
     li.appendChild(a);
     
     return li;
@@ -127,7 +129,7 @@ function TaoNoiDungThuongHieu(danhSachDacTrung, isActive){
         a.setAttribute('class',"col-2");
         //a.setAttribute('href',`./XemDanhMuc2.html?masodanhmuc1=${danhSachDacTrung.getAttribute('masodanhmuc2')}&masodanhmuc2=${danhMucCap2[i].getAttribute('maso')}`);
         a.setAttribute('id',thuongHieu[i].getAttribute('maso'));
-        //a.setAttribute('onclick','ClickDMC2(this.id, danhSachMatHang)');
+        a.setAttribute('onclick','onClickThuongHieu(this.id, danhSachMatHang)');
         
         var img = document.createElement('img');
         img.setAttribute('class',"d-block mx-auto");
@@ -214,4 +216,20 @@ function GetURLParameter(sParam) {
             return sParameterName[1];
         }
     }
+}
+
+//Click vào thương hiệu
+function onClickThuongHieu(id, danhSachMatHang){
+    var div = document.createElement('div');
+
+    for(var i = 0; i < danhSachMatHang.length;i++){
+        var thuongHieu = danhSachMatHang[i].getElementsByTagName('ThuongHieu')[0].getAttribute('maso');
+        if(thuongHieu == id)
+        {
+            var aMatHang = TaoNoiDungMatHang(danhSachMatHang[i]);
+            div.appendChild(aMatHang); 
+        }
+    }
+
+    document.getElementById('danhSachSanPham').innerHTML = div.innerHTML;
 }
