@@ -1,19 +1,23 @@
 /************       Xử lý lưu trữ       *******************/
-//Đọc danh sách danh mục
-function DocDanhSachDanhMuc(){
+//Đọc danh sách danh mục 2
+function DocDanhMuc1(){
     var request = new XMLHttpRequest();
     request.open('GET','http://localhost:3001/LayThongTinDanhMucTrangChu',false);
     request.send();
     var chuoiXml = request.responseText;
     var data = new DOMParser().parseFromString(chuoiXml,"text/xml").documentElement;
     var danhSachDanhMuc = data.getElementsByTagName('DanhMucCap1');
-    return danhSachDanhMuc;
+    for(var i = 0; i < danhSachDanhMuc.length;i++){
+        if(danhSachDanhMuc[i].getAttribute('maso') == GetURLParameter('masodanhmuc1')){
+            return danhSachDanhMuc[i];
+        }
+    }
 }
 
 //Đọc danh sách mặt hàng trang chủ
 function DocDanhSachMatHang(){
     var request = new XMLHttpRequest();
-    request.open('GET', 'http://localhost:3001/LayThongTinMatHangTrangChu',false);
+    request.open('GET', `http://localhost:3001/LayThongTinMatHangTrangDMC2?ma_so=${GetURLParameter('masodanhmuc2')}`,false);
     request.send();
     var chuoiXml = request.responseText;
     var dom = new DOMParser().parseFromString(chuoiXml,'text/xml').documentElement;
@@ -21,8 +25,48 @@ function DocDanhSachMatHang(){
     return danhSachMatHang;
 }
 
+//Đọc danh sách đặc trưng
+function DocDanhSachDacTrung(danhSachDanhMuc2){
+    var danhSachDacTrung = [];
+
+    for(var i = 0; i < danhSachDanhMuc2.length;i++){
+        var request = new XMLHttpRequest();
+        request.open('GET', `http://localhost:3001/LayThongTinDacTrungTrangDMC2?ma_so=${danhSachDanhMuc2[i].getAttribute('maso')}`,false);
+        request.send();
+        var chuoiXml = request.responseText;
+        var dom = new DOMParser().parseFromString(chuoiXml,'text/xml').documentElement;
+        danhSachDacTrung.push(dom);
+    }
+    
+    return danhSachDacTrung;
+}
+
 /************       Xử lý thể hiện       *******************/
-function TaoNoiDungDanhMucSanPham(danhMuc, isActive){
+function TaoTieuDeTheoDanhMuc(danhMuc1, masodanhmuc2){
+    var h4 = document.createElement('h4');
+
+    var span = document.createElement('span');
+    span.innerHTML=danhMuc1.getAttribute('ten')+' > ';
+
+    var a = document.createElement('a');
+    a.setAttribute('class',"text-secondary");
+    a.setAttribute('href', `./XemDanhMuc2.html?masodanhmuc1=${GetURLParameter('masodanhmuc1')}&masodanhmuc2=${masodanhmuc2}`)
+    
+    var danhSachDanhMuc2 = danhMuc1.getElementsByTagName('DanhMucCap2');
+    for(var i = 0; i < danhSachDanhMuc2.length;i++){
+        if(danhSachDanhMuc2[i].getAttribute('maso') == masodanhmuc2){
+            a.innerHTML = danhSachDanhMuc2[i].getAttribute('ten');
+            break;
+        }
+    }
+
+    h4.appendChild(span);
+    h4.appendChild(a);
+
+    return h4;
+}
+
+function TaoNoiDungDanhMucCap2(danhMuc, isActive){
     var li = document.createElement('li');
     li.setAttribute('class','nav-item');
 
@@ -45,29 +89,31 @@ function TaoNoiDungDanhMucSanPham(danhMuc, isActive){
     return li;
 }
 
-function TaoDanhMucSanPham(danhSachDanhMuc){
+function TaoDanhMucCap2(danhSachDanhMuc){
     var ul = document.createElement('ul');
 
-    var li = TaoNoiDungDanhMucSanPham(danhSachDanhMuc[0],true);
-    ul.appendChild(li);
-
-    for(var i = 1; i < danhSachDanhMuc.length; i++){
-        var li1 = TaoNoiDungDanhMucSanPham(danhSachDanhMuc[i],false);
+    for(var i = 0; i < danhSachDanhMuc.length; i++){
+        var li1;
+        if(danhSachDanhMuc[i].getAttribute('maso') == GetURLParameter('masodanhmuc2'))
+            li1 = TaoNoiDungDanhMucCap2(danhSachDanhMuc[i],true);
+        else
+            li1 = TaoNoiDungDanhMucCap2(danhSachDanhMuc[i],false);
         ul.appendChild(li1);
     }
 
     return ul;
 }
 
-function TaoNoiDungDanhMucCap2(danhSachDanhMucCap2, isActive){
+
+function TaoNoiDungThuongHieu(danhSachDacTrung, isActive){
     var divTab = document.createElement('div');
     if(isActive)
         divTab.setAttribute('class',"tab-pane fade show active");
     else
         divTab.setAttribute('class',"tab-pane fade");
-    divTab.setAttribute('id',danhSachDanhMucCap2.getAttribute('maso')+"-tab-content");
+    divTab.setAttribute('id',danhSachDacTrung.getAttribute('masodanhmuc2')+"-tab-content");
     divTab.setAttribute('role',"tabpanel");
-    divTab.setAttribute('aria-labelledby',danhSachDanhMucCap2.getAttribute('maso')+"-tab");
+    divTab.setAttribute('aria-labelledby',danhSachDacTrung.getAttribute('masodanhmuc2')+"-tab");
     
     var divBorder = document.createElement('div');
     divBorder.setAttribute('class',"border border-top-0 rounded p-2 pt-3");
@@ -75,21 +121,21 @@ function TaoNoiDungDanhMucCap2(danhSachDanhMucCap2, isActive){
     var divRow = document.createElement('div');
     divRow.setAttribute('class','row');
 
-    var danhMucCap2 = danhSachDanhMucCap2.getElementsByTagName('DanhMucCap2');
-    for(var i = 0; i < danhMucCap2.length; i++){
+    var thuongHieu = danhSachDacTrung.getElementsByTagName('ThuongHieu');
+    for(var i = 0; i < thuongHieu.length; i++){
         var a = document.createElement('a');
         a.setAttribute('class',"col-2");
-        a.setAttribute('href',`./XemDanhMuc2.html?masodanhmuc1=${danhSachDanhMucCap2.getAttribute('maso')}&masodanhmuc2=${danhMucCap2[i].getAttribute('maso')}`);
-        a.setAttribute('id',danhMucCap2[i].getAttribute('maso'));
+        //a.setAttribute('href',`./XemDanhMuc2.html?masodanhmuc1=${danhSachDacTrung.getAttribute('masodanhmuc2')}&masodanhmuc2=${danhMucCap2[i].getAttribute('maso')}`);
+        a.setAttribute('id',thuongHieu[i].getAttribute('maso'));
         //a.setAttribute('onclick','ClickDMC2(this.id, danhSachMatHang)');
         
         var img = document.createElement('img');
         img.setAttribute('class',"d-block mx-auto");
-        img.setAttribute( 'src',`./img/${danhMucCap2[i].getAttribute('maso')}.png`);
+        img.setAttribute( 'src',`./img/${thuongHieu[i].getAttribute('maso')}.png`);
 
         var divText = document.createElement('div');
         divText.setAttribute( 'class',"text-center font-weight-bold");
-        divText.innerHTML = danhMucCap2[i].getAttribute('ten');
+        divText.innerHTML = thuongHieu[i].innerHTML;
 
         a.appendChild(img);
         a.appendChild(divText);
@@ -101,14 +147,15 @@ function TaoNoiDungDanhMucCap2(danhSachDanhMucCap2, isActive){
     return divTab;
 }
 
-function TaoTabDanhMucCap2(danhSachDanhMuc){
+function TaoTabThuongHieu(danhSachDacTrung){
     var div = document.createElement('div');
 
-    var divTabActive = TaoNoiDungDanhMucCap2(danhSachDanhMuc[0],true);
-    div.appendChild(divTabActive);
-
-    for(var i = 1; i < danhSachDanhMuc.length; i++){
-        var divTab = TaoNoiDungDanhMucCap2(danhSachDanhMuc[i],false);
+    for(var i = 0; i < danhSachDacTrung.length; i++){
+        var divTab;
+        if(danhSachDacTrung[i].getAttribute('masodanhmuc2') == GetURLParameter('masodanhmuc2'))
+            divTab = TaoNoiDungThuongHieu(danhSachDacTrung[i],true);
+        else
+            divTab = TaoNoiDungThuongHieu(danhSachDacTrung[i],false);
         div.appendChild(divTab);
     }
 
@@ -155,18 +202,16 @@ function TaoDanhSachMatHang(danhSachMatHang){
     return div;
 }
 
-
 /************       Xử lý nghiệp vụ       *******************/
-function ClickDMC2(id, danhSachMatHang){
-    var div = document.createElement('div');
-
-    for(var i = 0; i < danhSachMatHang.length;i++){
-        if(danhSachMatHang[i].getAttribute('masodanhmuc2') == id)
+//Lấy các query param trên url
+function GetURLParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++){
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
         {
-            var aMatHang = TaoNoiDungMatHang(danhSachMatHang[i]);
-            div.appendChild(aMatHang); 
+            return sParameterName[1];
         }
     }
-
-    document.getElementById('danhSachSanPham').innerHTML = div.innerHTML;
 }

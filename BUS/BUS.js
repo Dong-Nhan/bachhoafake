@@ -123,14 +123,18 @@ function CacheDuLieuMatHangTrangChu(){
     if(MatHang.length > 10){
         for(let i = 0; i < 10;i++){
             let ran = Math.floor(Math.random())+MatHang.length;
-            DanhSachMatHangTrangChu.appendChild(MatHang[ran].cloneNode());
+            let MatHangClone = MatHang[ran].cloneNode();
+            MatHangClone.appendChild(MatHang[ran].getElementsByTagName('DacTrung')[0].cloneNode());
+            DanhSachMatHangTrangChu.appendChild(MatHangClone);
         }
         let ChuoiDanhSachMatHang = new XMLSerializer().serializeToString(DanhSachMatHangTrangChu);
         return ChuoiDanhSachMatHang;
     }
     else{
         for(let i = 0; i < MatHang.length;i++){
-            DanhSachMatHangTrangChu.appendChild(MatHang[i].cloneNode());
+            let MatHangClone = MatHang[i].cloneNode();
+            MatHangClone.appendChild(MatHang[i].getElementsByTagName('DacTrung')[0].cloneNode());
+            DanhSachMatHangTrangChu.appendChild(MatHangClone);
         }
         let ChuoiDanhSachMatHang = new XMLSerializer().serializeToString(DanhSachMatHangTrangChu);
         return ChuoiDanhSachMatHang;
