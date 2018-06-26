@@ -29,7 +29,9 @@
                         <a class="nav-link" href="#">Nhân viên: Đào Thị A</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Đăng xuất</a>
+                        <form id="formDangXuat" action="http://localhost:3001/DangXuat" method="POST">
+                            <button class="btn btn-secondary" type="submit">Đăng xuất</button>
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -40,32 +42,32 @@
             <div class="col-2 mt-5">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="#">Xem hàng</a>
+                        <a class="nav-link font-weight-bold" href="/Nhan_vien_xem.html">Xem hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold active" href="#">Bán hàng</a>
+                        <a class="nav-link font-weight-bold active" href="/Nhan_vien_ban.html">Bán hàng</a>
                     </li>
                 </ul>
             </div>
-            <div class="col-10 mt-5">
-                <form method="POST" action="">
+            <div class="col-10 my-5">
+                <form id="formBanHang">
                     <div class="form-row">
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="hoten">Họ tên: </label>
-                                <input type="text" name="hoten" id="hoten" class="form-control" placeholder="Nhập họ tên" required>
+                                <input type="text" name="ho_ten_khach" id="hoten" class="form-control" placeholder="Nhập họ tên" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="diachi">Địa chỉ: </label>
-                                <input type="text" class="form-control" name="diachi" id="diachi" placeholder="Nhập địa chỉ" required>
+                                <input type="text" class="form-control" name="dia_chi" id="diachi" placeholder="Nhập địa chỉ" required>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="dienthoai">Số điện thoại:</label>
-                                <input type="text" class="form-control" name="dienthoai" id="dienthoai" placeholder="Nhập SDT" required>
+                                <input type="text" class="form-control" name="dien_thoai" id="dienthoai" placeholder="Nhập SDT" required>
                             </div>
                         </div>
                         <div class="form-group col-md-2">
@@ -74,7 +76,7 @@
                         </div>
                     </div>
                     <div class="col-md-11">
-                        <table class="table mt-2">
+                        <table id="tableBanHang" class="table mt-2">
                             <thead>
                                 <tr>
                                     <th scope="col" style="width: 7%">STT</th>
@@ -85,22 +87,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <td scope="row">1</td>
-                                <td>
-                                    <select class="custom-select custom-select-md mb-3">
-                                        <option></option>
-                                        <option data-id="masomathang">Bia Sài Gòn</option>
-                                        <option data-id="masomathang">Sữa tươi Vinamilk</option>
-                                        <option data-id="masomathang">Mì Hảo Hảo</option>
-                                        <option data-id="masomathang">Sữa đặc Ông Thọ</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" name="soLuong" min="1" value="1" required="">
-                                </td>
-                                <td>
-                                </td>
-                                <td></td>
+                                <tr>
+                                    <td scope="row">1</td>
+                                    <td>
+                                        <select name="ma_so" class="custom-select custom-select-md mb-3">
+                                            <option></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control" name="so_luong" min="1" value="1" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control" name="don_gia" readonly value="0">
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control" name="tien" readonly value="0">
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -108,23 +111,21 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="tongtien">Tổng tiền:</label>
-                            <span class="font-weight-bold" id="tongtien">200000</span>
+                            <span class="font-weight-bold" id="tongTien">0</span>
                         </div>
                         <button class="btn btn-success" type="submit">Bán hàng</button>
-                        <button type="button" class="btn">Thêm</button>
+                        <button id="btnThem" type="button" class="btn">Thêm</button>
                     </div>
                 </form>
             </div>
         </div>
 
-
-        <script src="js/Nhan_vien.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+        <script src="js/Nhan_vien.js"></script>
 
 </body>
 

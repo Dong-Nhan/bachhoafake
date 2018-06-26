@@ -6,7 +6,10 @@ const port = 3001
 
 http.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    //để phía client có thể gửi kèm cookie cho cross-domain request
+    //tạm thời set cứng localhost:3000
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
     const {
         pathname,
         query
@@ -59,7 +62,7 @@ http.createServer((req, res) => {
                     break;
                 case "/KiemTraTokenKeyVaRole":
                     {
-                        let role = method.KiemTraTokeKeyVaRole(cookie.tokenkey);
+                        let role = method.KiemTraTokeKeyVaRole(req.headers.tokenkey);
                         res.end(role);
                     }
                     break;
@@ -80,15 +83,19 @@ http.createServer((req, res) => {
                 req.on('end', function () {
                     //parse thành 1 object để dễ sử dụng
                     body = queryString.parse(body);
+                    //để phía client có thể gửi kèm cookie cho cross-domain request
+                    //tạm thời set cứng localhost:3000
+                    // res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
                     switch (pathname) {
                         case "/DangXuat":
                             {
                                 console.log(cookie.tokenkey);
                                 if (method.KiemTraTokeKey(cookie.tokenkey)) {
                                     let result = method.DangXuat(cookie.tokenkey);
-                                    if (result)
+                                    if (result) {
+                                        res.setHeader('Set-Cookie', 'tokenkey=');
                                         console.log("Dang xuat thanh cong");
-                                    else
+                                    } else
                                         console.log("Dang xuat ko thanh cong 1");
                                     res.end(result ? "true" : "false");
                                 } else {
@@ -129,7 +136,7 @@ http.createServer((req, res) => {
                         case "/BanHang":
                             {
                                 if (method.KiemTraTokeKey(cookie.tokenkey)) {
-                                    let result = method.BanHang(body.data, cookie.tokenkey);
+                                    let result = method.BanHang(body, cookie.tokenkey);
                                     res.end(result ? "true" : "false");
                                 } else {
                                     res.end();

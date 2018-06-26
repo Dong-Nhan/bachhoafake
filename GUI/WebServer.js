@@ -68,7 +68,7 @@ http.createServer((req, res) => {
             }
             break;
         case "/Nhan_vien_ban.html":
-        case "Nhan_vien_xem.html":
+        case "/Nhan_vien_xem.html":
             {
                 //Kiểm tra token key trong cookie và xác nhận xem có vào được trang ko theo role
                 let role;
@@ -78,7 +78,9 @@ http.createServer((req, res) => {
 
                         if (role != "NV") {
                             console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
-                            res.writeHead(404, 'Not found')
+                            res.writeHead(302, {
+                                'Location': 'http://localhost:3000/Dang_nhap.html'
+                            });
                             res.end();
                             return;
                         }
@@ -98,8 +100,10 @@ http.createServer((req, res) => {
                 else
                 {
                     console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
-                    res.writeHead(404, 'Not found')
-                    res.end()
+                    res.writeHead(302, {
+                        'Location': 'http://localhost:3000/Dang_nhap.html'
+                    });
+                    res.end();
                     break;
                 }
             }
@@ -108,6 +112,7 @@ http.createServer((req, res) => {
             {
                 //Kiểm tra token key trong cookie và xác nhận xem có vào được trang ko theo role
                 let role;
+                console.log(typeof cookie.tokenkey);
                 if (typeof cookie.tokenkey !== "undefined") {
                     method.KiemTraTokenKey(cookie.tokenkey, (buffer) => {
                         role = buffer;
@@ -116,7 +121,9 @@ http.createServer((req, res) => {
                             req_url = "/Quan_ly.html";
                         } else {
                             console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
-                            res.writeHead(404, 'Not found')
+                            res.writeHead(302, {
+                                'Location': 'http://localhost:3000/Dang_nhap.html'
+                            });
                             res.end();
                             return;
                         }
@@ -136,8 +143,10 @@ http.createServer((req, res) => {
                 else
                 {
                     console.log('==> Error: Ban khong co quyen truy cap trang nay!!!')
-                    res.writeHead(404, 'Not found')
-                    res.end()
+                    res.writeHead(302, {
+                        'Location': 'http://localhost:3000/Dang_nhap.html'
+                    });
+                    res.end();
                     break;
                 }
             }
