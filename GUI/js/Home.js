@@ -40,6 +40,8 @@ function TaoNoiDungDanhMucSanPham(danhMuc, isActive){
     a.setAttribute('aria-controls',a.getAttribute('id')+"-content");
     a.setAttribute('aria-selected',"true");
     a.innerHTML = danhMuc.getAttribute('ten');
+
+    a.setAttribute('onclick','ClickDMC1(this.id, danhSachMatHang)');
     li.appendChild(a);
     
     return li;
@@ -81,7 +83,7 @@ function TaoNoiDungDanhMucCap2(danhSachDanhMucCap2, isActive){
         a.setAttribute('class',"col-2");
         a.setAttribute('href',`./XemDanhMuc2.html?masodanhmuc1=${danhSachDanhMucCap2.getAttribute('maso')}&masodanhmuc2=${danhMucCap2[i].getAttribute('maso')}`);
         a.setAttribute('id',danhMucCap2[i].getAttribute('maso'));
-        //a.setAttribute('onclick','ClickDMC2(this.id, danhSachMatHang)');
+        //a.setAttribute('onclick','ClickDMC1(this.id, danhSachMatHang)');
         
         var img = document.createElement('img');
         img.setAttribute('class',"d-block mx-auto");
@@ -118,7 +120,7 @@ function TaoTabDanhMucCap2(danhSachDanhMuc){
 function TaoNoiDungMatHang(matHang){
     var a = document.createElement('a');
     a.setAttribute('class',"col-md-4 col-lg-3 mb-5 p-0");
-    a.setAttribute('href',"#");
+    a.setAttribute('href',`./XemChiTiet.html?maso=${matHang.getAttribute('maso')}`);
 
     var divBorder = document.createElement('div');
     divBorder.setAttribute('class',"border border-light");
@@ -157,11 +159,12 @@ function TaoDanhSachMatHang(danhSachMatHang){
 
 
 /************       Xử lý nghiệp vụ       *******************/
-function ClickDMC2(id, danhSachMatHang){
+function ClickDMC1(id, danhSachMatHang){
+    var masodanhmuc1 = id.substring(0,id.lastIndexOf('-'));
     var div = document.createElement('div');
 
     for(var i = 0; i < danhSachMatHang.length;i++){
-        if(danhSachMatHang[i].getAttribute('masodanhmuc2') == id)
+        if(danhSachMatHang[i].getAttribute('masodanhmuc1') == masodanhmuc1)
         {
             var aMatHang = TaoNoiDungMatHang(danhSachMatHang[i]);
             div.appendChild(aMatHang); 

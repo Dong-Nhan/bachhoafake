@@ -167,7 +167,7 @@ function TaoTabThuongHieu(danhSachDacTrung){
 function TaoNoiDungMatHang(matHang){
     var a = document.createElement('a');
     a.setAttribute('class',"col-md-4 col-lg-3 mb-5 p-0");
-    a.setAttribute('href',"#");
+    a.setAttribute('href',`./XemChiTiet.html?maso=${matHang.getAttribute('maso')}`);
 
     var divBorder = document.createElement('div');
     divBorder.setAttribute('class',"border border-light");
