@@ -223,4 +223,20 @@
             <Loai ten="Hương vị">Có đường</Loai>
         </DacTrung>
     </MatHang>
+    <MatHang ten="Mì Hảo Hảo Sa tế hành cay" maso="mh_mi_hao_hao_sa_te_hanh_cay" soluongtrongmathang="1" khoiluongtinh="74g" gia="3600" tinhtrang="ban" thuonghieu="HaoHao" masodanhmuc1="dm1_thuc_pham_an_lien" masodanhmuc2="dm2_mi">
+        <ThongTinChiTiet>
+            <ThongTin>Vị sa tế hành cay hấp dẫn. Sợi mì vàng óng, mềm dai.</ThongTin>
+            <ThongTin>Gói nhỏ tiện lợi</ThongTin>
+            <ThongTin>Sản phẩm với công nghệ Nhật Bản</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Sợi mì Hảo Hảo được chế biến từ bột mì, tinh bột khoai mì, muối, đường, chất điều vị, dịch chiết xuất từ cá,… nên sợi mì được vàng óng tự nhiên, không có phẩm màu, an toàn cho sức khỏe.</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Cho vắt mì, gói súp bột, gói dầu vào tô. Chế nước sôi vào khoảng 400ml và đậy nắp lại chờ 3 phút. Sau đó, trộn đều và dùng ngay.</MoTa>
+            <MoTa ten="Bảo quản">Bảo quản nơi khô ráo, thoáng mát..</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_mi">
+            <ThuongHieu maso="th_haohao">Hảo Hảo</ThuongHieu>
+            <Loai ten="Hương vị">Mì tôm</Loai>
+        </DacTrung>
+    </MatHang>
 </DanhSachMatHang>
