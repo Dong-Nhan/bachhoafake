@@ -86,6 +86,7 @@ function TaoChiTietSanPham(matHang){
     var img = document.createElement('img');
     img.setAttribute('class',"hinh-san-pham d-block mx-auto");
     img.setAttribute( 'src',`./img/${matHang.getAttribute('maso')}/hinh1.jpg`);
+    img.setAttribute('onclick','OnClinkImg()');
     divCol5.appendChild(img);
 
     var divCol7 = document.createElement('div');
@@ -135,4 +136,14 @@ function GetURLParameter(sParam) {
             return sParameterName[1];
         }
     }
+}
+
+//Click chuyển hình
+function OnClinkImg(){
+    var img = document.getElementsByClassName("hinh-san-pham d-block mx-auto")[0];
+    var src = img.getAttribute('src');
+    var nextImg = parseInt(src[src.length-5]) + 1;
+    nextImg = (nextImg>3)?1:nextImg;
+    src = src.substr(0,src.length-5)+ nextImg + src.substr(src.length-5 + 1);
+    img.setAttribute('src',src);
 }
