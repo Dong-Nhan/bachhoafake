@@ -74,6 +74,7 @@ http.createServer((req, res) => {
                             res.end();
                         }
                     }
+                    break;
                 default:
                     console.log("Truy van khong hop le: ", req.method, pathname);
                     res.end();
@@ -124,7 +125,7 @@ http.createServer((req, res) => {
                         case "/SuaThongTinDonGia":
                             {
                                 if (method.KiemTraTokeKey(cookie.tokenkey)) {
-                                    let result = method.SuaThongTinDonGia(body.ma_so, body.don_gia_moi);
+                                    let result = method.SuaThongTinDonGia(query.ma_so, query.don_gia_moi);
                                     res.end(result ? "true" : "false");
                                 } else {
                                     res.end();
@@ -134,7 +135,7 @@ http.createServer((req, res) => {
                         case "/SuaThongTinTinhTrang":
                             {
                                 if (method.KiemTraTokeKey(cookie.tokenkey)) {
-                                    let result = method.SuaThongTinTinhTrang(body.ma_so, body.tinh_trang_moi);
+                                    let result = method.SuaThongTinTinhTrang(query.ma_so, query.tinh_trang_moi);
                                     res.end(result ? "true" : "false");
                                 } else {
                                     res.end();

@@ -71,7 +71,7 @@ function CreateTable(danhMuc) {
 
 function CreateRow(matHang) {
   var tr = document.createElement("tr");
-  tr.setAttribute('id', matHang.getAttribute('maso'));
+  tr.setAttribute('id',matHang.getAttribute('maso'));
 
   var so_thu_tu = document.createElement("td");
   so_thu_tu.innerText = stt;
@@ -110,7 +110,7 @@ function CreateRow(matHang) {
   tr.appendChild(tinh_trang);
   
   var edit_button = document.createElement('td');
-  edit_button.innerHTML= `<button class="btn btn-success btn-sm"><i class="material-icons">edit</i></button>`;
+  edit_button.innerHTML= `<button class="btn btn-success btn-sm" id="${matHang.getAttribute('maso')}-edit" onclick="OnClickChinhSua('${matHang.getAttribute('maso')}')"><i class="material-icons">edit</i></button>`;
   tr.appendChild(edit_button);
 
   $(`#tableMatHang tbody`)[0].appendChild(tr);
@@ -130,3 +130,72 @@ $('#formDangXuat').submit(function (event) {
       if(data == 'true') location.href="http://localhost:3000/Dang_nhap.html";
     });
 })
+
+function OnClickChinhSua(id){
+  var tr = document.getElementById(id);
+  var tdGia = tr.getElementsByTagName('td')[4];
+  var tdTinhTrang = tr.getElementsByTagName('td')[5];
+  
+  tdGia.innerHTML = `<input type='number' value='${tdGia.innerHTML.substr(0,tdGia.innerHTML.lastIndexOf('V'))}'>`;
+  if(tdTinhTrang.innerHTML == 'Bán')
+    tdTinhTrang.innerHTML = `<select ><option value="ban" selected>Bán</option><option value="ngung" >Ngưng</option></select>`;
+  else
+    tdTinhTrang.innerHTML = `<select ><option value="ban">Bán</option><option value="ngung" selected>Ngưng</option></select>`;
+
+  var editBtn = document.getElementById(id+'-edit');
+  editBtn.setAttribute('onclick',`OnClickSave('${id}')`);
+}
+
+function OnClickSave(id){
+  var tr = document.getElementById(id);
+  var tdGia = tr.getElementsByTagName('td')[4];
+  var tdTinhTrang = tr.getElementsByTagName('td')[5];
+  
+  var gia = tdGia.getElementsByTagName('input')[0].value;
+  var select = tdTinhTrang.getElementsByTagName('select')[0];
+  var tinhTrang = select.options[select.selectedIndex].value;
+
+  var thanhCong = true;
+
+  $.ajax({
+    url: `http://localhost:3001/SuaThongTinDonGia?ma_so=${id}&don_gia_moi=${gia}`,
+    type: "POST",
+    dataType: 'text',
+    xhrFields: { //send cookie cho cross domain
+      withCredentials: true
+    },
+  })
+  .done(function (data) {
+    if(data == 'true'){
+      tdGia.innerHTML = gia + 'VND';
+    }
+    else if(data == 'false'){
+      alert('Không thể cập nhật đơn giá mới ở server!!!');
+      thanhCong = false;
+    }
+  });
+  
+  $.ajax({
+    url: `http://localhost:3001/SuaThongTinTinhTrang?ma_so=${id}&tinh_trang_moi=${tinhTrang}`,
+    type: "POST",
+    dataType: 'text',
+    xhrFields: { //send cookie cho cross domain
+      withCredentials: true
+    },
+  })
+  .done(function (data) {
+    if(data == 'true'){
+      tdTinhTrang.innerHTML = tinhTrang=='ban'?'Bán':'Ngưng';
+    }
+    else if(data == 'false'){
+      alert('Không thể cập nhật tình trạng mới ở server!!!');
+      thanhCong = false;
+    }
+  });
+  
+  if(thanhCong)
+  {
+    var editBtn = document.getElementById(id+'-edit');
+    editBtn.setAttribute('onclick',`OnClickChinhSua('${id}')`);
+  }
+}
