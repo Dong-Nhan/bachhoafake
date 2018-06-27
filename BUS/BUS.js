@@ -121,21 +121,23 @@ function UpdateFunction(url){
 function CacheDuLieuMatHangTrangChu(){
     let DanhSachMatHangTrangChu = DOM_DanhSachMatHang.createElement("DanhSachMatHang");
     let MatHang = DOM_DanhSachMatHang.getElementsByTagName("MatHang");
-    if(MatHang.length > 10){
-        for(let i = 0; i < 10;i++){
-            let ran = Math.floor(Math.random())+MatHang.length;
+    /* if(MatHang.length > 12){
+        for(let i = 0; i < 12;i++){
+            let ran = Math.floor(Math.random()*(MatHang.length-i));
             DanhSachMatHangTrangChu.appendChild(MatHang[ran].cloneNode());
+            let SanPham = DOM_DanhSachMatHang.removeChild(MatHang[ran]);
+            DOM_DanhSachMatHang.appendChild(SanPham);
         }
         let ChuoiDanhSachMatHang = new XMLSerializer().serializeToString(DanhSachMatHangTrangChu);
         return ChuoiDanhSachMatHang;
-    }
-    else{
+    } */
+    //else{
         for(let i = 0; i < MatHang.length;i++){
             DanhSachMatHangTrangChu.appendChild(MatHang[i].cloneNode());
         }
         let ChuoiDanhSachMatHang = new XMLSerializer().serializeToString(DanhSachMatHangTrangChu);
         return ChuoiDanhSachMatHang;
-    }
+    //}
 }
 
 function CacheDuLieuNV(masodanhmuc2){

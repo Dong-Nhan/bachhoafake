@@ -79,6 +79,22 @@
             <Loai ten="Loại đóng hộp">Bia lon</Loai>
         </DacTrung>
     </MatHang>
+    <MatHang ten="Bia Heineken lon" maso="mh_bia_heineken_lon" soluongtrongmathang="1" khoiluongtinh="330ml" gia="16500" tinhtrang="ban" thuonghieu="Heineken" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_bia">
+        <ThongTinChiTiet>
+            <ThongTin>Nồng độ cồn 5%</ThongTin>
+            <ThongTin>Vị đắng dịu nhẹ, đậm đà</ThongTin>
+            <ThongTin>Ngon hơn khi uống lạnh (10-15°C)</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Bia Heineken có màu bia vàng óng ả hoà cùng với lớp bọt trắng muốt, mịn màng minh chứng cho một loại bia tuyệt hảo. Bia có hương thơm và vị đắng nhẹ rất đặc trưng, khi uống bia êm dịu đầy hấp dẫn. </MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Uống trực tiếp trong lon hoặc đổ ra ly, ngon hơn khi uống lạnh, tốt nhất ở 10°C - 15°C.</MoTa>
+            <MoTa ten="Bảo quản">Bảo quản nơi sạch sẽ, khô ráo, thoáng mát. Tránh ánh nắng mặt trời.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_bia">
+            <ThuongHieu maso="th_heineken">Heineken</ThuongHieu>
+            <Loai ten="Loại đóng hộp">Bia lon</Loai>
+        </DacTrung>
+    </MatHang>
     <MatHang ten="Hạt nêm Knorr Nấm Hương" maso="mh_hat_nem_knorr_nam_huong" soluongtrongmathang="1" khoiluongtinh="25g" gia="4000" tinhtrang="ban" thuonghieu="Knorr" masodanhmuc1="dm1_gia_vi_nau_an" masodanhmuc2="dm2_hat_nem">
         <ThongTinChiTiet>
             <ThongTin>Hương vị thanh ngọt, mùi nấm thơm ngon</ThongTin>
@@ -93,6 +109,118 @@
         <DacTrung masodanhmuc2="dm2_hat_nem">
             <ThuongHieu maso="th_knorr">Knorr</ThuongHieu>
             <Loai ten="Loại">Hạt nêm chay</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Hạt nêm Aji-ngon Heo" maso="mh_hat_nem_ajingon_heo" soluongtrongmathang="1" khoiluongtinh="60g" gia="5000" tinhtrang="ban" thuonghieu="AjiNgon" masodanhmuc1="dm1_gia_vi_nau_an" masodanhmuc2="dm2_hat_nem">
+        <ThongTinChiTiet>
+            <ThongTin>Chiết xuất từ xương và thịt</ThongTin>
+            <ThongTin>Dạng gói dễ sử dụng, bảo quản</ThongTin>
+            <ThongTin>Bảo đảm an toàn vệ sinh thực phẩm</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Thành phần từ muối, chất điều vị (Mononatri Glutamat 621, Dinatri Inosinat 631, Dinatri Guanylat 627), đường, tinh bột, chiết xuất cô đặc (từ thịt, xương ống và xương sườn) 3.3%, Canxi Carbonat</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Món chiên: 1 muỗng cho 500 thịt/cá. Món kho: 2 muỗng cho 500 thịt/cá. Món xào: 1.5 muỗng cho 500g rau củ. Món canh súp: 3 muỗng cho 1 lít nước.</MoTa>
+            <MoTa ten="Bảo quản">Gói kín và để nơi khô ráo, thoáng mát, tránh ánh nắng mặt trời.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_hat_nem">
+            <ThuongHieu maso="th_ajingon">Aji-ngon</ThuongHieu>
+            <Loai ten="Loại">Hạt nêm xương thịt</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Bột ngọt Ajinomoto hạt lớn" maso="mh_bot_ngot_ajinomoto_hat_lon" soluongtrongmathang="1" khoiluongtinh="100g" gia="8200" tinhtrang="ban" thuonghieu="Ajinomoto" masodanhmuc1="dm1_gia_vi_nau_an" masodanhmuc2="dm2_bot_ngot">
+        <ThongTinChiTiet>
+            <ThongTin>Làm từ mật mía, tinh bột khoai mì</ThongTin>
+            <ThongTin>Bột ngọt hạt lớn, không vụn</ThongTin>
+            <ThongTin>Sản xuất tại Việt Nam</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Bột ngọt Ajinomoto được sản xuất từ nguyên liệu tự nhiên như mật mía đường và tinh bột lúa mì với quy trình sản xuất hiện đại theo tiêu chuẩn Nhật Bản.</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Dùng làm gia vị chế biến các món ăn.</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo, thoáng mát, tránh ánh nắng mặt trời.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_bot_ngot">
+            <ThuongHieu maso="th_ajinomoto">Ajinomoto</ThuongHieu>
+            <Loai ten="Khối lượng">Gói nhỏ</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Bột ngọt Vedan" maso="mh_bot_ngot_vedan" soluongtrongmathang="1" khoiluongtinh="454g" gia="28200" tinhtrang="ngung" thuonghieu="Vedan" masodanhmuc1="dm1_gia_vi_nau_an" masodanhmuc2="dm2_bot_ngot">
+        <ThongTinChiTiet>
+            <ThongTin>Làm từ mật mía, tinh bột khoai mì</ThongTin>
+            <ThongTin>Bột ngọt hạt lớn, không vụn</ThongTin>
+            <ThongTin>Sản xuất tại Việt Nam</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Bột ngọt Vedan được làm từ nguyên liệu tự nhiên như mật mía đường và tinh bột lúa mì, góp phần làm nên bữa ăn ngon của gia đình Việt. Bột ngọt là một gia vị thực phẩm có chức năng điều vị làm cho thực phẩm ngon hơn.</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Dùng làm gia vị chế biến các món ăn.</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo, thoáng mát, tránh ánh nắng mặt trời.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_bot_ngot">
+            <ThuongHieu maso="th_vedan">Vedan</ThuongHieu>
+            <Loai ten="Khối lượng">Gói lớn</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Pepsi Cola chai" maso="mh_pepsi_cola_chai" soluongtrongmathang="1" khoiluongtinh="390ml" gia="7000" tinhtrang="ban" thuonghieu="Pepsi" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_nuoc_ngot">
+        <ThongTinChiTiet>
+            <ThongTin>Hương cola hấp dẫn, giải nhiệt tức thì</ThongTin>
+            <ThongTin>Không chứa chất bảo quản</ThongTin>
+            <ThongTin>Cung cấp năng lượng</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Thành phần nước bão hòa, đường mía, đường cùng với hương cola hấp dẫn, giải nhiệt tức thì, mát lạnh sảng khoái. Sản phẩm không chứa các chất bảo quản độc hại ảnh hưởng đến sức khỏe người tiêu dùng.</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Dùng trực tiếp, ngon hơn khi uống lạnh.</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo, thoáng mát tránh ánh nắng trực tiếp.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_nuoc_ngot">
+            <ThuongHieu maso="th_pepsi">Pepsi</ThuongHieu>
+            <Loai ten="Hương vị">Có đường</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Pepsi Light không đường lon" maso="mh_pepsi_khong_duong_lon" soluongtrongmathang="1" khoiluongtinh="330ml" gia="8000" tinhtrang="ban" thuonghieu="Pepsi" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_nuoc_ngot">
+        <ThongTinChiTiet>
+            <ThongTin>Nước ngọt có ga không đường.</ThongTin>
+            <ThongTin>Giúp giải tỏa cơn khát tức thì. Cung cấp thêm năng lượng trong ngày.</ThongTin>
+            <ThongTin>Hương vị thơm ngon, hấp dẫn.</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Với nước bão hòa CO2, chất điều độ axit không chứa các chất bảo quản độc hại mang đến chất lượng tuyệt hảo cho sản phẩm, hoàn toàn yên tâm khi sử dụng.</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Dùng trực tiếp, ngon hơn khi uống lạnh.</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo, thoáng mát tránh ánh nắng trực tiếp.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_nuoc_ngot">
+            <ThuongHieu maso="th_pepsi">Pepsi</ThuongHieu>
+            <Loai ten="Hương vị">Không đường</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Pepsi Cola lon cao" maso="mh_pepsi_cola_lon_cao" soluongtrongmathang="1" khoiluongtinh="330ml" gia="9000" tinhtrang="ban" thuonghieu="Pepsi" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_nuoc_ngot">
+        <ThongTinChiTiet>
+            <ThongTin>Nước ngọt có ga.</ThongTin>
+            <ThongTin>Thành phần nước bão hòa CO2, đường mía, hỗn hợp hương tự nhiên</ThongTin>
+            <ThongTin>Hương vị thơm ngon, hấp dẫn. Giúp giải tỏa cơn khát tức thì.</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Với nước bão hòa CO2, chất điều độ axit không chứa các chất bảo quản độc hại mang đến chất lượng tuyệt hảo cho sản phẩm, hoàn toàn yên tâm khi sử dụng.</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Dùng trực tiếp, ngon hơn khi uống lạnh.</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo, thoáng mát tránh ánh nắng trực tiếp.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_nuoc_ngot">
+            <ThuongHieu maso="th_pepsi">Pepsi</ThuongHieu>
+            <Loai ten="Hương vị">Có đường</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Coca Cola lon đỏ" maso="mh_coca_cola_lon_do" soluongtrongmathang="1" khoiluongtinh="250ml" gia="5500" tinhtrang="ban" thuonghieu="CocaCola" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_nuoc_ngot">
+        <ThongTinChiTiet>
+            <ThongTin>Nước ngọt có ga.</ThongTin>
+            <ThongTin>Giúp giải khát, bổ sung năng lượng</ThongTin>
+            <ThongTin>Vị coca đặc trưng, hấp dẫn</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Nước giải khát Coca Cola được làm từ đường mía, chất bảo hòa CO2, màu thực phẩm...và lượng ga lớn giúp bạn giải tỏa cơn khát, sảng khoái tức thì.</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Dùng trực tiếp, ngon hơn khi uống lạnh.</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo, thoáng mát tránh ánh nắng trực tiếp.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_nuoc_ngot">
+            <ThuongHieu maso="th_cocacola">Coca Cola</ThuongHieu>
+            <Loai ten="Hương vị">Có đường</Loai>
         </DacTrung>
     </MatHang>
 </DanhSachMatHang>

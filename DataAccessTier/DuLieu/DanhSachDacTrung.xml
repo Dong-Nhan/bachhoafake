@@ -16,7 +16,7 @@
         </DanhSachThuongHieu>
         <Loai ten="Hương vị">
             <GiaTri>Không đường</GiaTri>
-            <GiaTri>Ít đường</GiaTri>
+            <GiaTri>Có đường</GiaTri>
         </Loai>
     </DacTrung>
     <DacTrung masodanhmuc2="dm2_sua_tuoi">

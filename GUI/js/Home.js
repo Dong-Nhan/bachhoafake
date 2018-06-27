@@ -148,9 +148,13 @@ function TaoNoiDungMatHang(matHang){
 
 function TaoDanhSachMatHang(danhSachMatHang){
     var div = document.createElement('div');
+    let parent = danhSachMatHang[0].parentNode;
 
-    for(var i = 0; i < danhSachMatHang.length;i++){
-        var aMatHang = TaoNoiDungMatHang(danhSachMatHang[i]);
+    for(var i = 0; i < 12;i++){
+        let ran = Math.floor(Math.random()*(danhSachMatHang.length-i));
+        let sanPham = parent.removeChild(danhSachMatHang[ran]);
+        var aMatHang = TaoNoiDungMatHang(sanPham);
+        parent.appendChild(sanPham);
         div.appendChild(aMatHang); 
     }
 
