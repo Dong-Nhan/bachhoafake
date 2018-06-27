@@ -79,7 +79,7 @@
             <Loai ten="Loại đóng hộp">Bia lon</Loai>
         </DacTrung>
     </MatHang>
-    <MatHang ten="Bia Tiger bạc Crystal" maso="mh_bia_tiger_bac_srystal" soluongtrongmathang="1" khoiluongtinh="330ml" gia="15000" tinhtrang="ban" thuonghieu="Tiger" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_bia">
+    <MatHang ten="Bia Tiger bạc Crystal" maso="mh_bia_tiger_bac_crystal" soluongtrongmathang="1" khoiluongtinh="330ml" gia="15000" tinhtrang="ban" thuonghieu="Tiger" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_bia">
         <ThongTinChiTiet>
             <ThongTin>Nồng độ cồn 4.6%</ThongTin>
             <ThongTin>Hương vị êm dịu, thơm nồng</ThongTin>
@@ -224,6 +224,22 @@
         </DacTrung>
     </MatHang>
     <MatHang ten="Coca Cola lon đỏ" maso="mh_coca_cola_lon_do" soluongtrongmathang="1" khoiluongtinh="250ml" gia="5500" tinhtrang="ban" thuonghieu="CocaCola" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_nuoc_ngot">
+        <ThongTinChiTiet>
+            <ThongTin>Nước ngọt có ga.</ThongTin>
+            <ThongTin>Giúp giải khát, bổ sung năng lượng</ThongTin>
+            <ThongTin>Vị coca đặc trưng, hấp dẫn</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Nước giải khát Coca Cola được làm từ đường mía, chất bảo hòa CO2, màu thực phẩm...và lượng ga lớn giúp bạn giải tỏa cơn khát, sảng khoái tức thì.</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Dùng trực tiếp, ngon hơn khi uống lạnh.</MoTa>
+            <MoTa ten="Bảo quản">Để nơi khô ráo, thoáng mát tránh ánh nắng trực tiếp.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_nuoc_ngot">
+            <ThuongHieu maso="th_cocacola">Coca Cola</ThuongHieu>
+            <Loai ten="Hương vị">Có đường</Loai>
+        </DacTrung>
+    </MatHang>
+    <MatHang ten="Coca Cola chai lon" maso="mh_coca_cola_chai_lon" soluongtrongmathang="1" khoiluongtinh="2.25l" gia="23000" tinhtrang="ban" thuonghieu="CocaCola" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_nuoc_ngot">
         <ThongTinChiTiet>
             <ThongTin>Nước ngọt có ga.</ThongTin>
             <ThongTin>Giúp giải khát, bổ sung năng lượng</ThongTin>

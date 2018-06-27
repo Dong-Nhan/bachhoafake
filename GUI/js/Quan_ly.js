@@ -136,11 +136,11 @@ function OnClickChinhSua(id){
   var tdGia = tr.getElementsByTagName('td')[4];
   var tdTinhTrang = tr.getElementsByTagName('td')[5];
   
-  tdGia.innerHTML = `<input type='number' style='border: none' value='${tdGia.innerHTML.substr(0,tdGia.innerHTML.lastIndexOf('V'))}'>`;
+  tdGia.innerHTML = `<input type='number' class='form-control'  value='${tdGia.innerHTML.substr(0,tdGia.innerHTML.lastIndexOf('V'))}'>`;
   if(tdTinhTrang.innerHTML == 'Bán')
-    tdTinhTrang.innerHTML = `<select style='border: none'><option value="ban" selected>Bán</option><option value="ngung" >Ngưng</option></select>`;
+    tdTinhTrang.innerHTML = `<select class='form-control'><option value="ban" selected>Bán</option><option value="ngung" >Ngưng</option></select>`;
   else
-    tdTinhTrang.innerHTML = `<select style='border: none'><option value="ban">Bán</option><option value="ngung" selected>Ngưng</option></select>`;
+    tdTinhTrang.innerHTML = `<select class='form-control'><option value="ban">Bán</option><option value="ngung" selected>Ngưng</option></select>`;
 
   var editBtn = document.getElementById(id+'-edit');
   editBtn.setAttribute('onclick',`OnClickSave('${id}')`);
