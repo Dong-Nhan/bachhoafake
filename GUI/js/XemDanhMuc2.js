@@ -133,6 +133,7 @@ function TaoNoiDungThuongHieu(danhSachDacTrung, isActive){
         
         var img = document.createElement('img');
         img.setAttribute('class',"d-block mx-auto");
+        img.setAttribute('style','width:90%');
         img.setAttribute( 'src',`./img/${thuongHieu[i].getAttribute('maso')}.png`);
 
         var divText = document.createElement('div');
