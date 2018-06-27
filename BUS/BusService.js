@@ -66,6 +66,14 @@ http.createServer((req, res) => {
                         res.end(role);
                     }
                     break;
+                case "/LayTenTaiKhoan":
+                    {
+                        if (method.KiemTraTokeKey(cookie.tokenkey)) {
+                            res.end(method.LayTenTaiKhoan(cookie.tokenkey));
+                        } else {
+                            res.end();
+                        }
+                    }
                 default:
                     console.log("Truy van khong hop le: ", req.method, pathname);
                     res.end();

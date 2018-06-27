@@ -373,6 +373,18 @@ class BUS{
         //Nếu ko tìm thấy trả về rỗng
         return "";
     }
+
+    LayTenTaiKhoan(tokenkey){
+        if(!tokenkey) return "";
+        let DanhSachTaiKhoan = DOM_DanhSachTaiKhoan.getElementsByTagName("TaiKhoan");
+        let username = tokenkey.substr(0,tokenkey.lastIndexOf('-'));
+        for(var i = 0; i< DanhSachTaiKhoan.length;i++){
+            if(DanhSachTaiKhoan[i].getAttribute('username') == username){
+                return DanhSachTaiKhoan[i].getAttribute('ten');
+            }
+        }
+        return "";
+    }
 }
 
 var bus = new BUS();

@@ -35,6 +35,21 @@ $(`body`)[0].onload = function () {
       //Quản lý xem: Đẩy dữ liệu cho dropdown menu Danh mục
       addDataToDropdownMenu(dsDanhMuc);
     });
+
+    
+    //lấy tên nhân viên
+  $.ajax({
+      url: "http://localhost:3001/LayTenTaiKhoan",
+      type: "GET",
+      dataType: 'text',
+      xhrFields: { //send cookie cho cross domain
+        withCredentials: true
+      },
+    })
+    .done(function (data) {
+      let a = document.getElementsByClassName('nav-link')[0];
+      a.innerHTML = "Nhân viên: " + data;
+    });
 }
 
 function addDataToDropdownMenu(data) {
@@ -56,6 +71,7 @@ function CreateTable(danhMuc) {
 
 function CreateRow(matHang) {
   var tr = document.createElement("tr");
+  tr.setAttribute('id', matHang.getAttribute('maso'));
 
   var so_thu_tu = document.createElement("td");
   so_thu_tu.innerText = stt;
@@ -67,7 +83,7 @@ function CreateRow(matHang) {
   var img = document.createElement("img");
   img.style.cssText = "";
   img.className = "hinh-san-pham";
-  img.src = "img/" + matHang.getAttribute('maso') + ".jpg";
+  img.src = "img/" + matHang.getAttribute('maso') + "/hinh1.jpg";
   hinh_anh.appendChild(img);
   tr.appendChild(hinh_anh);
 
