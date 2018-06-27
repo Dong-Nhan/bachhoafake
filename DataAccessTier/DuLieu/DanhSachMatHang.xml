@@ -79,6 +79,22 @@
             <Loai ten="Loại đóng hộp">Bia lon</Loai>
         </DacTrung>
     </MatHang>
+    <MatHang ten="Bia Tiger bạc Crystal" maso="mh_bia_tiger_bac_srystal" soluongtrongmathang="1" khoiluongtinh="330ml" gia="15000" tinhtrang="ban" thuonghieu="Tiger" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_bia">
+        <ThongTinChiTiet>
+            <ThongTin>Nồng độ cồn 4.6%</ThongTin>
+            <ThongTin>Hương vị êm dịu, thơm nồng</ThongTin>
+            <ThongTin>Ngon hơn khi uống lạnh (10-15°C)</ThongTin>
+        </ThongTinChiTiet>
+        <MoTaChiTiet>
+            <MoTa ten="Thành phần công dụng">Thành phần: Nước, đại mạch, hoa bia,..... Với thành phần từ đại mạch, hoa bia và ngũ cốc, Bia Tiger có vị đậm đà, khi uống rất êm và độ cồn không quá cao giúp cuộc vui được kéo dài.</MoTa>
+            <MoTa ten="Hướng dẫn sử dụng">Uống trực tiếp trong lon hoặc đổ ra ly, ngon hơn khi uống lạnh, tốt nhất ở 10°C - 15°C.</MoTa>
+            <MoTa ten="Bảo quản">Bảo quản nơi sạch sẽ, khô ráo, thoáng mát. Tránh ánh nắng mặt trời.</MoTa>
+        </MoTaChiTiet>
+        <DacTrung masodanhmuc2="dm2_bia">
+            <ThuongHieu maso="th_tiger">Tiger</ThuongHieu>
+            <Loai ten="Loại đóng hộp">Bia lon</Loai>
+        </DacTrung>
+    </MatHang>
     <MatHang ten="Bia Heineken lon" maso="mh_bia_heineken_lon" soluongtrongmathang="1" khoiluongtinh="330ml" gia="16500" tinhtrang="ban" thuonghieu="Heineken" masodanhmuc1="dm1_do_uong" masodanhmuc2="dm2_bia">
         <ThongTinChiTiet>
             <ThongTin>Nồng độ cồn 5%</ThongTin>
