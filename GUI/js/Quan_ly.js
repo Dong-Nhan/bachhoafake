@@ -48,7 +48,7 @@ $(`body`)[0].onload = function () {
     })
     .done(function (data) {
       let a = document.getElementsByClassName('nav-link')[0];
-      a.innerHTML = "Nhân viên: " + data;
+      a.innerHTML = "Quản lý: " + data;
     });
 }
 

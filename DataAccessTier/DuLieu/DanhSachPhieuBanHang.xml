@@ -25,4 +25,4 @@
         <MatHang maso="mh_sua_tt_vinamilk" soluong="2" dongia="5000" tien="10000"/>
         <MatHang maso="mh_sua_tt_dutch_lady" soluong="1" dongia="6000" tien="6000"/>
     </PhieuBanHang>
-</DanhSachPhieuBanHang>
+<PhieuBanHang hotennguoimua="ABC" diachi="NVC" dienthoai="012" ngay="2018-06-28" hotennhanvien="Đào Thị A" tongtien="69000"><MatHang maso="mh_pepsi_cola_chai" soluong="7" dongia="7000" tien="49000"/><MatHang maso="mh_hat_nem_ajingon_heo" soluong="4" dongia="5000" tien="20000"/></PhieuBanHang></DanhSachPhieuBanHang>
