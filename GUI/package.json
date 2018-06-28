@@ -4,6 +4,7 @@
   "description": "GUI Tier",
   "main": "WebServer.js",
   "scripts": {
+    "start": "node WebServer.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "devstart": "nodemon WebServer.js"
   },
